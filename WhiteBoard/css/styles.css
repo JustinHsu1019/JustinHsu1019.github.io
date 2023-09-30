@@ -1,0 +1,51 @@
+html {
+    background: #d3d7d4;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#menu_0 {
+    background-color: black;
+}
+
+#page_1 {
+    margin-left: 15%;
+}
+
+body,
+input {
+    font-size: 9pt;
+}
+
+#dCanvas,
+#dLine {
+    clear: both;
+}
+
+.option {
+    float: left;
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
+
+.active {
+    border: 2px solid white;
+}
+
+.lw {
+    text-align: center;
+    vertical-align: middle;
+}
+
+img.output {
+    border: 1px solid green;
+}
+
+#cSketchPad {
+    cursor: arrow;
+}
