@@ -7,51 +7,25 @@
     <link rel="shortcut icon" href="img/favicon.ico" />
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/jquery-1.6.4.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("meta[name='viewport']").attr('content', "width=device-width, minimum-scale=1.0, maximum-scale=1");
-            $("#pop").css("display", "none");
-            document.documentElement.style.overflow = 'hidden';
-            document.body.style.overflow = 'hidden';
-
-            document.getElementById('mycanvas').width = document.documentElement.scrollWidth * 1.5;
-            document.getElementById('mycanvas').height = document.documentElement.scrollHeight * 1.5;
-        });
-    </script>
+    <script src="js/start.js"></script>
 </head>
 
 <body>
-    <form class="valign-middle2" name="rossi2" id="rossi2" style="position: absolute;bottom: 0px;left: 0px;">
+    <form class="valign-middle2" name="rossi2" id="rossi2">
         <canvas id="mycanvas" class="border"></canvas>
     </form>
-        <form class="valign-middle" name="rossi" id="rossi"
-            style="position: absolute;bottom: 17px;right: 11px;background-color:#8bb1be;border-width:5px;border-style:double;border-color:#FFAC55;">
-            <br>
-            <input style="margin-left: 2px;" type="range" name="pw" min="2" max="30" value="2" /><br><br>
-            <input type="color" style="margin-left: 8px;" name="pc" value="#FFFFFF"><br><br>
-            <input type="button" id="fullScreenButton"
-                style="margin-left: 2px;width:130px; height:50px;font-weight:bold;font-size: 30px;text-align: center;"
-                value="全螢幕" /><br><br>
-            <input type="button" id="ClearIMG" onclick="clearPad()"
-                style="margin-left: 2px;width:130px; height:50px;font-weight:bold;font-size: 30px;text-align: center;"
-                value="清除" /><br><br>
-            <input type="button" id="PenIMG" onclick="penPad()"
-                style="margin-left: 2px;width:130px; height:50px;font-weight:bold;font-size: 30px;text-align: center;"
-                value="筆" /><br><br>
-            <input type="button" id="EraIMG" onclick="eraserPad()"
-                style="margin-left: 2px;width:130px; height:50px;font-weight:bold; font-size: 30px;text-align: center;"
-                value="橡皮" /><br><br>
-            <input type="button" id="page_1" onClick="page_up()"
-                style="margin-left: 2px;width:130px; height:50px;font-weight:bold; font-size: 30px;text-align: center;"
-                value="上頁" /><br><br>
-            <center><span id="menu_0"
-                    style="margin-left: 2px;text-align:center;font-weight:bold;font-size:40px; color:white;"></span>
-            </center><br>
-            <input type="button" id="page_2"
-                style="margin-left: 2px;width:130px; height:50px;font-weight:bold; font-size: 30px;text-align: center;"
-                onClick="page_down()" value="下頁" /><br>
-            <span>.</span>
-        </form>
+    <form class="valign-middle" name="rossi" id="rossi"><br>
+        <input style="margin-left: 2px;" type="range" name="pw" min="2" max="30" value="2" /><br><br>
+        <input type="color" style="margin-left: 8px;" name="pc" value="#FFFFFF"><br><br>
+        <input type="button" id="fullScreenButton" value="全螢幕" /><br><br>
+        <input type="button" id="ClearIMG" onclick="clearPad()" value="清除" /><br><br>
+        <input type="button" id="PenIMG" onclick="penPad()" value="筆" /><br><br>
+        <input type="button" id="EraIMG" onclick="eraserPad()" value="橡皮" /><br><br>
+        <input type="button" id="page_1" onClick="page_up()" value="上頁" /><br><br>
+        <center><span id="menu_0"></span></center><br>
+        <input type="button" id="page_2" onClick="page_down()" value="下頁" /><br>
+        <span>.</span> <!-- 排版需求 -->
+    </form>
 
     <script src="js/scripts.js"></script>
 </body>

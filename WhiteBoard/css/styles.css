@@ -6,10 +6,6 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-#menu_0 {
-    background-color: black;
-}
-
 #page_1 {
     margin-left: 15%;
 }
@@ -48,4 +44,43 @@ img.output {
 
 #cSketchPad {
     cursor: arrow;
+}
+
+#rossi2 {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+#rossi {
+    position: absolute;
+    bottom: 17px;
+    right: 11px;
+    background-color: #8bb1be;
+    border-width: 5px;
+    border-style: double;
+    border-color: #FFAC55;
+}
+
+#fullScreenButton,
+#ClearIMG,
+#PenIMG,
+#EraIMG,
+#page_1,
+#page_2 {
+    margin-left: 2px;
+    width: 130px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+
+#menu_0 {
+    margin-left: 2px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+    background-color: black;
 }

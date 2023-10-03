@@ -182,7 +182,6 @@ window.addEventListener('load', function () {
         });
         show_out = count_page + 1;
         document.getElementById("menu_0").innerHTML = show_out.toString() + "/200";
-        console.log(count_page + 1);
     }
     var canvas = $('#mycanvas');
     var ctx = canvas[0].getContext("2d");
@@ -206,7 +205,6 @@ for (var pagd = 0; pagd < 200; pagd++) {
 }
 var show_out = count_page + 1;
 document.getElementById("menu_0").innerHTML = show_out.toString() + "/200";
-console.log(count_page + 1);
 page_up = function () {
     page_value[count_page] = mycanvas.toDataURL("image/jpg");
     if (count_page != 0) {
@@ -220,7 +218,6 @@ page_up = function () {
         })
         show_out = count_page + 1;
         document.getElementById("menu_0").innerHTML = show_out.toString() + "/200";
-        console.log(count_page + 1);
     }
 };
 page_down = function () {
@@ -246,6 +243,5 @@ page_down = function () {
         }
         show_out = count_page + 1;
         document.getElementById("menu_0").innerHTML = show_out.toString() + "/200";
-        console.log(count_page + 1);
     }
 };
