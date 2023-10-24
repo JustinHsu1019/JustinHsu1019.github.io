@@ -1,7 +1,7 @@
-# Justin's 個人網站
-## 介紹:
-1. 這裡會放置我的 Demo 網頁
-2. 之後也會考慮當作部落格使用
+# Justin's Personal Website
+## Introduction:
+1. This is where I'll place my demo web pages.
+2. I'm also considering using it as a blog in the future.
 
-## 目前上傳的頁面:
+## Currently Uploaded Pages:
 1. https://justinhsu1019.github.io/WhiteBoard/
