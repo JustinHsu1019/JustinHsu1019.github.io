@@ -4,17 +4,12 @@
     "description": "A simple ClashRoyale game made with Canvas.",
     "icons": [
         {
-            "src": "favicon.ico",
-            "type": "image/x-icon",
-            "sizes": "48x48 96x96 192x192"
-        },
-        {
             "src": "icon-144.png",
             "type": "image/png",
             "sizes": "144x144",
             "purpose": "any"
         }
-    ],    
+    ],
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#FFFFFF",
