@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LLaMA-ClashRoyale</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+
+<body>
+    <canvas id="game-canvas" width="600" height="980"></canvas>
+    <script src="js/canvas.js"></script>
+    <script>
+        document.body.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, { passive: false });
+    </script>
+</body>
+
+</html>

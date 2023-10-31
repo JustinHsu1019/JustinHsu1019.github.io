@@ -5,3 +5,4 @@
 
 ## Currently Uploaded Pages:
 1. https://justinhsu1019.github.io/WhiteBoard/
+2. https://justinhsu1019.github.io/ClashRoyale/
