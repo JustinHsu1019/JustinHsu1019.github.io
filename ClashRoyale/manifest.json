@@ -1,0 +1,16 @@
+{
+    "short_name": "LLaMA-ClashRoyale",
+    "name": "LLaMA-ClashRoyale Game",
+    "description": "A simple ClashRoyale game made with Canvas.",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "type": "image/x-icon",
+            "sizes": "48x48 96x96 192x192"
+        }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#000000"
+}
