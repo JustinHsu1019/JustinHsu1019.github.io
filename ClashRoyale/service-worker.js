@@ -1,9 +1,9 @@
 const CACHE_NAME = 'llama-clashroyale-v1';
 const assetsToCache = [
-    '',
-    'index.html',
-    'js/canvas.js',
-    'favicon.ico'
+    './',
+    './index.html',
+    './js/canvas.js',
+    './favicon.ico'
 ];
 
 self.addEventListener('install', (event) => {
