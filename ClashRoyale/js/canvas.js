@@ -81,6 +81,10 @@ function draw() {
     ctx.fill();
 
     ctx.clearRect(7, 848, 120, 35);
+
+    ctx.fillStyle = "white";
+    ctx.fillRect(7, 848, 120, 35);
+
     ctx.font = "30px Arial";
     ctx.fillStyle = "gray";
     ctx.fillText("聖水: " + counter, 21, 876);
