@@ -14,6 +14,12 @@ let playedCards = [];
 
 let nextCardIndex = 4;
 
+const towersCoords = [
+    [250, 20, 100, 100], [260, 30, 80, 80], [50, 110, 100, 100], [60, 120, 80, 80],
+    [450, 110, 100, 100], [460, 120, 80, 80], [250, 720, 100, 100], [260, 730, 80, 80],
+    [50, 630, 100, 100], [60, 640, 80, 80], [450, 630, 100, 100], [460, 640, 80, 80]
+];
+
 function generateCards() {
     const cardWidth = 95;
     const cardHeight = 120;
@@ -124,6 +130,13 @@ function startDrag(event) {
             if (point.x > card.x * scaleWidth && point.x < (card.x + card.width) * scaleWidth &&
                 point.y > card.y * scaleHeight && point.y < (card.y + card.height) * scaleHeight) {
                 card.dragging = true;
+
+                if (point.y < 850 * scaleHeight) {
+                    card.width *= 0.8;
+                    card.height *= 0.8;
+                }
+
+                draw();
             }
         });
     }
@@ -135,9 +148,35 @@ function drag(event) {
         if (card.dragging) {
             card.x = point.x / scaleWidth - card.width / 2;
             card.y = point.y / scaleHeight - card.height / 2;
+
+            if (card.y < 800 && card.width === 95) {
+                card.width *= 0.8;
+                card.height *= 0.8;
+                card.x = point.x / scaleWidth - card.width / 2;
+                card.y = point.y / scaleHeight - card.height / 2;
+            }
+
+            else if (card.y >= 800 && card.width !== 95) {
+                card.width = 95;
+                card.height = 120;
+                card.x = point.x / scaleWidth - card.width / 2;
+                card.y = point.y / scaleHeight - card.height / 2;
+            }
+
             draw();
         }
     });
+}
+
+function intersects(card, rect) {
+    return !(card.x > rect[0] + rect[2] ||
+        card.x + card.width < rect[0] ||
+        card.y > rect[1] + rect[3] ||
+        card.y + card.height < rect[1]);
+}
+
+function cardCrossedCenterLine(card) {
+    return card.y < 400;
 }
 
 function endDrag(_) {
@@ -146,23 +185,38 @@ function endDrag(_) {
         if (card.dragging && !handled) {
             card.dragging = false;
             handled = true;
-            counter -= 4;
-            playedCards.push({
-                x: card.x,
-                y: card.y,
-                width: card.width * 0.8,
-                height: card.height * 0.8,
-                label: card.label,
-                moving: true
+
+            let canPlace = card.y > 400;
+
+            towersCoords.forEach(coord => {
+                if (card.x < coord[0] + coord[2] && card.x + card.width > coord[0] &&
+                    card.y < coord[1] + coord[3] && card.y + card.height > coord[1]) {
+                    canPlace = false;
+                }
             });
 
-            card.label += 4;
-            if (card.label > 8) {
-                card.label -= 8;
+            if (canPlace) {
+                counter -= 4;
+                playedCards.push({
+                    x: card.x,
+                    y: card.y,
+                    width: card.width * 0.8,
+                    height: card.height * 0.8,
+                    label: card.label,
+                    moving: true
+                });
+
+                card.label += 4;
+                if (card.label > 8) {
+                    card.label -= 8;
+                }
+
             }
 
             card.x = (600 - 4 * 95 - 3 * 5) / 2 + index * (95 + 5) + 65;
             card.y = 850;
+            card.width = 95;
+            card.height = 120;
 
             draw();
         }
