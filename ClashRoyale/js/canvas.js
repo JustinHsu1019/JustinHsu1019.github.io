@@ -195,7 +195,20 @@ function endDrag(_) {
             });
 
             if (canPlace) {
-                
+                counter -= 4;
+                playedCards.push({
+                    x: card.x,
+                    y: card.y,
+                    width: card.width * 0.8,
+                    height: card.height * 0.8,
+                    label: card.label,
+                    moving: true
+                });
+
+                card.label += 4;
+                if (card.label > 8) {
+                    card.label -= 8;
+                }
             } else {
                 card.x = (600 - 4 * 95 - 3 * 5) / 2 + index * (95 + 5) + 65;
                 card.y = 850;
