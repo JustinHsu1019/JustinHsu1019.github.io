@@ -209,8 +209,9 @@ function endDrag(_) {
                         width: card.width * 0.8,
                         height: card.height * 0.8,
                         label: card.label,
-                        moving: true
-                    });
+                        moving: true,
+                        onChannel: false
+                    });                    
 
                     card.label += 4;
                     if (card.label > 8) {
@@ -229,14 +230,42 @@ function endDrag(_) {
     });
 }
 
+function getNearestChannelCenter(card) {
+    const leftChannelCenter = 103.5;
+    const rightChannelCenter = 503.5;
+
+    const distanceToLeft = Math.abs(card.x - leftChannelCenter);
+    const distanceToRight = Math.abs(card.x - rightChannelCenter);
+
+    return distanceToLeft < distanceToRight ? leftChannelCenter : rightChannelCenter;
+}
+
 function movePlayedCards() {
     playedCards.forEach(card => {
         if (card.moving) {
-            card.y -= CARD_MOVE_SPEED;
+            if (!card.onChannel) {
+                const nearestChannelCenter = getNearestChannelCenter(card);
+                if (card.x < nearestChannelCenter) {
+                    card.x += CARD_MOVE_SPEED;
+                    if (card.x > nearestChannelCenter) {
+                        card.x = nearestChannelCenter;
+                        card.onChannel = true;
+                    }
+                } else if (card.x > nearestChannelCenter) {
+                    card.x -= CARD_MOVE_SPEED;
+                    if (card.x < nearestChannelCenter) {
+                        card.x = nearestChannelCenter;
+                        card.onChannel = true;
+                    }
+                }
+            }
 
-            if (card.y <= 0) {
-                card.y = 0;
-                card.moving = false;
+            if (card.onChannel) {
+                card.y -= CARD_MOVE_SPEED;
+                if (card.y <= 0) {
+                    card.y = 0;
+                    card.moving = false;
+                }
             }
         }
     });
