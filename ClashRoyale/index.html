@@ -14,22 +14,37 @@
             margin: 0;
             overflow: hidden;
         }
+
         #game-canvas {
             display: none;
+            position: absolute;
+            left: 2.5%;
         }
+
         canvas {
             display: block;
+        }
+
+        #loading-text {
+            position: absolute;
+            top: 67%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em;
+            color: white;
+            z-index: 10;
         }
     </style>
 </head>
 
 <body>
+    <div id="loading-text">遊戲載入中 ...</div>
     <canvas id="game-canvas" width="600" height="980"></canvas>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="js/canvas.js"></script>
     <script>
         let scene, camera, renderer, cube;
-        let animationDuration = 5000;
+        let animationDuration = 1500;
         let startTime = Date.now();
 
         function init() {
@@ -58,6 +73,7 @@
             } else {
                 renderer.domElement.style.display = 'none';
                 document.getElementById('game-canvas').style.display = 'block';
+                document.getElementById('loading-text').style.display = 'none'; // 隱藏載入文字
                 return;
             }
 
@@ -88,4 +104,5 @@
         });
     </script>
 </body>
+
 </html>
