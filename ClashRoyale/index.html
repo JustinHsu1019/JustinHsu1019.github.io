@@ -106,12 +106,11 @@
             if (document.visibilityState === 'hidden') {
                 lastTimeDocumentHidden = Date.now();
             } else if (document.visibilityState === 'visible') {
-                if (isAnimationCompleted) {
-                    init();
-                    animate();
-                }
+                let elapsedTimeSinceHidden = Date.now() - lastTimeDocumentHidden;
+                startTime += elapsedTimeSinceHidden;
             }
         });
+
 
         document.addEventListener("DOMContentLoaded", function () {
             if ('serviceWorker' in navigator) {
