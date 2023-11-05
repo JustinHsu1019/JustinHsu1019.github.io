@@ -106,10 +106,7 @@
             if (document.visibilityState === 'hidden') {
                 lastTimeDocumentHidden = Date.now();
             } else if (document.visibilityState === 'visible') {
-                let currentTime = Date.now();
-                let timeAway = currentTime - lastTimeDocumentHidden;
-
-                if (isAnimationCompleted && timeAway > 30000) {
+                if (isAnimationCompleted) {
                     init();
                     animate();
                 }
