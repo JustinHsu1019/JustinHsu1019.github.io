@@ -72,8 +72,10 @@
             startTime = Date.now();
         }
 
+        let animationFrameId;
+
         function animate() {
-            requestAnimationFrame(animate);
+            animationFrameId = requestAnimationFrame(animate);
 
             let elapsed = Date.now() - startTime;
             if (elapsed < animationDuration) {
@@ -85,6 +87,8 @@
                     document.getElementById('game-canvas').style.display = 'block';
                     document.getElementById('loading-text').style.display = 'none';
                     isAnimationCompleted = true;
+                    cancelAnimationFrame(animationFrameId);
+                    return;
                 }
                 return;
             }
@@ -105,12 +109,14 @@
         document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'hidden') {
                 lastTimeDocumentHidden = Date.now();
+                cancelAnimationFrame(animationFrameId);
             } else if (document.visibilityState === 'visible') {
-                let elapsedTimeSinceHidden = Date.now() - lastTimeDocumentHidden;
-                startTime += elapsedTimeSinceHidden;
+                if (isAnimationCompleted) {
+                    init();
+                    animate();
+                }
             }
         });
-
 
         document.addEventListener("DOMContentLoaded", function () {
             if ('serviceWorker' in navigator) {
