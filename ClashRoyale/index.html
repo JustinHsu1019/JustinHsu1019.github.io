@@ -46,6 +46,8 @@
         let scene, camera, renderer, cube;
         let animationDuration = 1500;
         let startTime = Date.now();
+        let isAnimationCompleted = false;
+        let lastTimeDocumentHidden;
 
         function init() {
             scene = new THREE.Scene();
@@ -61,6 +63,13 @@
 
             scene.add(cube);
             camera.position.z = 5;
+
+            renderer.domElement.style.display = 'block';
+            document.getElementById('game-canvas').style.display = 'none';
+            document.getElementById('loading-text').style.display = 'block';
+
+            isAnimationCompleted = false;
+            startTime = Date.now();
         }
 
         function animate() {
@@ -71,9 +80,12 @@
                 cube.rotation.x += 0.01;
                 cube.rotation.y += 0.01;
             } else {
-                renderer.domElement.style.display = 'none';
-                document.getElementById('game-canvas').style.display = 'block';
-                document.getElementById('loading-text').style.display = 'none';
+                if (!isAnimationCompleted) {
+                    renderer.domElement.style.display = 'none';
+                    document.getElementById('game-canvas').style.display = 'block';
+                    document.getElementById('loading-text').style.display = 'none';
+                    isAnimationCompleted = true;
+                }
                 return;
             }
 
@@ -89,6 +101,20 @@
         document.body.addEventListener('touchmove', function (e) {
             e.preventDefault();
         }, { passive: false });
+
+        document.addEventListener('visibilitychange', function () {
+            if (document.visibilityState === 'hidden') {
+                lastTimeDocumentHidden = Date.now();
+            } else if (document.visibilityState === 'visible') {
+                let currentTime = Date.now();
+                let timeAway = currentTime - lastTimeDocumentHidden;
+
+                if (isAnimationCompleted && timeAway > 30000) {
+                    init();
+                    animate();
+                }
+            }
+        });
 
         document.addEventListener("DOMContentLoaded", function () {
             if ('serviceWorker' in navigator) {

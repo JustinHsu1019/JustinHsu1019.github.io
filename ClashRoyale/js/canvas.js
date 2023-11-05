@@ -211,7 +211,7 @@ function endDrag(_) {
                         label: card.label,
                         moving: true,
                         onChannel: false
-                    });                    
+                    });
 
                     card.label += 4;
                     if (card.label > 8) {
