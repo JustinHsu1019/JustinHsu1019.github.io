@@ -4,9 +4,9 @@
 2. I'm also considering using it as a blog in the future.
 
 ## My GitHub Profile:
-- [JustinHsu1019](https://github.com/JustinHsu1019)
+- https://github.com/JustinHsu1019
 
 ## My Web APPs:
-- [WhiteBoard](https://justinhsu1019.github.io/WhiteBoard)
-- [ClashRoyale](https://justinhsu1019.github.io/ClashRoyale)
-- [MimicStyler](https://justinhsu.000webhostapp.com/mimicstyler)
+- https://justinhsu1019.github.io/WhiteBoard
+- https://justinhsu1019.github.io/ClashRoyale
+- https://justinhsu.000webhostapp.com/mimicstyler
