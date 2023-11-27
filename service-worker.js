@@ -1,9 +1,7 @@
-const CACHE_NAME = 'llama-clashroyale-v1';
+const CACHE_NAME = 'justin-website-v1';
 const assetsToCache = [
     './',
-    './index.html',
-    './js/canvas.js',
-    './favicon.ico'
+    './index.html'
 ];
 
 self.addEventListener('install', (event) => {
