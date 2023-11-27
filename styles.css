@@ -28,13 +28,6 @@ header {
     border-radius: 8px 8px 0 0;
 }
 
-.header-avatar {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    margin-right: 15px;
-}
-
 header h1 {
     color: #fff;
     font-size: 3rem;
@@ -137,4 +130,20 @@ section a:hover {
     margin-left: 20px;
     width: 300px;
     height: auto;
+}
+
+.about-title {
+    display: flex;
+    align-items: center;
+}
+
+.header-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.about-title span {
+    font-size: 2rem;
 }
