@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #f7f7f7;
+    color: #333;
+    line-height: 1.7; /* Slightly increased line height for better readability */
+    font-size: 18px; /* Base font size increased for overall text */
+}
+
+.container {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+header {
+    background: #333;
+    padding: 20px 0;
+    border-radius: 8px 8px 0 0;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 3rem; /* Larger font size for the header title */
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #555;
+    padding: 0;
+    margin: 10px 0 20px;
+    border-radius: 8px;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 20px; /* Slightly increased padding for larger clickable area */
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1.1rem; /* Increased font size for navigation links */
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+section h2 {
+    color: #333;
+    font-size: 2rem; /* Increased font size for section headings */
+    margin-top: 0;
+}
+
+section p, section ul {
+    font-size: 1.1rem; /* Slightly larger font size for paragraph and list */
+    margin-bottom: 15px; /* Slightly increased margin for better separation */
+}
+
+section ul {
+    list-style-position: inside;
+}
+
+section a {
+    color: #5D93E1;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease; /* Smooth transition for the underline */
+}
+
+section a:hover {
+    text-decoration: underline;
+}
+
+/* This styles the background of the scrollbar track */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the vertical scrollbar */
+    height: 12px; /* Height of the horizontal scrollbar */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 6px; /* Rounded corners for the scrollbar thumb */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/* This styles the scrollbar track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 6px; /* Optional: rounded corners for the scrollbar track */
+}
+
+/* This styles the scrollbar corner where horizontal and vertical scrollbars meet */
+::-webkit-scrollbar-corner {
+    background: #f1f1f1; 
+}
