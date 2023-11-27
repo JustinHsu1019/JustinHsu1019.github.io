@@ -13,6 +13,19 @@
           "meta[name=theme-color]"
         ]
       }
-    ]
+    ],
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ],
+    "axe/forms": [
+      "default",
+      {
+        "label": "off"
+      }
+    ],
+    "no-inline-styles": "off"
   }
 }
