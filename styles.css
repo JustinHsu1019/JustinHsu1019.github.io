@@ -198,3 +198,14 @@ section a:hover {
 #resume a:hover {
     text-decoration: underline;
 }
+
+#site-title {
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+#site-title:hover {
+    color: #5D93E1;
+    text-decoration: underline;
+}

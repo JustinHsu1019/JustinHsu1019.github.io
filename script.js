@@ -22,3 +22,13 @@ document.querySelectorAll('nav ul li a').forEach(tab => {
         targetSection.classList.remove('hidden');
     });
 });
+
+document.getElementById('site-title').addEventListener('click', function () {
+    document.getElementById('resume').classList.add('hidden');
+
+    document.querySelectorAll('main > section').forEach(section => {
+        if (section.id !== 'resume') {
+            section.classList.remove('hidden');
+        }
+    });
+});
