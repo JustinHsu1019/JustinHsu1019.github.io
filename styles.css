@@ -30,9 +30,9 @@ header {
 
 header h1 {
     color: #fff;
-    align-items: center;
     font-size: 3rem;
     margin: 0;
+    text-align: center;
 }
 
 nav ul {
@@ -147,4 +147,15 @@ section a:hover {
 
 .about-title span {
     font-size: 2rem;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .header-avatar {
+        width: 50px;
+        height: 50px;
+    }
 }
