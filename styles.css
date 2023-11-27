@@ -164,3 +164,37 @@ section a:hover {
         padding: 10px;
     }
 }
+
+.hidden {
+    display: none;
+}
+
+.resume-image {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    display: block;
+    margin: 0 auto;
+}
+
+#resume img {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    display: block;
+    margin: 0 auto;
+}
+
+#resume p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#resume a {
+    color: #5D93E1;
+    text-decoration: none;
+}
+
+#resume a:hover {
+    text-decoration: underline;
+}

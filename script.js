@@ -7,3 +7,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+function hideAllSections() {
+    document.querySelectorAll('main > section').forEach(section => {
+        section.classList.add('hidden');
+    });
+}
+
+document.querySelectorAll('nav ul li a').forEach(tab => {
+    tab.addEventListener('click', function (event) {
+        event.preventDefault();
+        hideAllSections();
+        var targetSection = document.querySelector(this.getAttribute('href'));
+        targetSection.classList.remove('hidden');
+    });
+});
