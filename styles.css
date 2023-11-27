@@ -30,6 +30,7 @@ header {
 
 header h1 {
     color: #fff;
+    align-items: center;
     font-size: 3rem;
     margin: 0;
 }
