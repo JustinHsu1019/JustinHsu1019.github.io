@@ -1,44 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Justin's Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 0;
+            margin: 0;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1.6;
+        }
+
+        .container {
+            border: 1px solid black;
+            padding: 20px;
+            max-width: 800px;
+            box-sizing: border-box;
+            margin: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #0077cc;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            h1,
+            h2 {
+                font-size: 20px;
+            }
+
+            a {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
-        <header>
-            <h1>Justin's Website</h1>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="#instruction">Instruction</a></li>
-                <li><a href="#profile">My Profile</a></li>
-                <li><a href="#apps">My Web APPs</a></li>
-            </ul>
-        </nav>
-        <main>
-            <section id="instruction">
-                <h2>Introduction</h2>
-                <p>1. This is where I'll place my demo web pages.</p>
-                <p>2. I'm also considering using it as a blog in the future.</p>
-            </section>
-            <section id="profile">
-                <h2>My Profile</h2>
-                <p>GitHub: <a href="https://github.com/JustinHsu1019" target="_blank">JustinHsu1019</a></p>
-            </section>
-            <section id="apps">
-                <h2>My Web APPs</h2>
-                <ul>
-                    <li>Web Game: <a href="https://justinhsu1019.github.io/ClashRoyale" target="_blank">Clash Royale</a></li>
-                    <li>Web Tool: <a href="https://justinhsu1019.github.io/WhiteBoard" target="_blank">White Board</a></li>
-                    <li>Web Tool: <a href="https://justinhsu.000webhostapp.com/mimicstyler" target="_blank">Mimic Styler</a></li>
-                </ul>
-            </section>
-        </main>
+        <h1>Justin's Website</h1>
+        <h2>Introduction:</h2>
+        <ul>
+            <li>1. This is where I'll place my demo web pages.</li>
+            <li>2. I'm also considering using it as a blog in the future.</li>
+        </ul>
+
+        <h2>My Profile:</h2>
+        <ul>
+            <li><a href="https://github.com/JustinHsu1019/" target="_blank">GitHub: JustinHsu1019</a></li>
+        </ul>
+
+        <h2>My Web APPs:</h2>
+        <ul>
+            <li><a href="https://justinhsu1019.github.io/WhiteBoard/" target="_blank">Web Tool: White Board</a></li>
+            <li><a href="https://justinhsu1019.github.io/ClashRoyale/" target="_blank">Web Game: Clash Royale</a></li>
+            <li><a href="https://justinhsu.000webhostapp.com/mimicstyler/" target="_blank">Web Tool: Mimic Styler</a>
+            </li>
+        </ul>
     </div>
-    <script src="script.js"></script>
 </body>
+
 </html>
