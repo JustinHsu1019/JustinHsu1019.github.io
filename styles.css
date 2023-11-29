@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
@@ -15,7 +16,7 @@ body, html {
     margin: 40px auto;
     padding: 20px;
     background: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
@@ -84,7 +85,8 @@ section h2 {
     margin-top: 0;
 }
 
-section p, section ul {
+section p,
+section ul {
     font-size: 1.1rem;
     margin-bottom: 15px;
 }
@@ -109,21 +111,21 @@ section a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #888;
     border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #555;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #f1f1f1;
     border-radius: 6px;
 }
 
 ::-webkit-scrollbar-corner {
-    background: #f1f1f1; 
+    background: #f1f1f1;
 }
 
 .right-aligned-img {
@@ -207,5 +209,27 @@ section a:hover {
 
 #site-title:hover {
     color: #5D93E1;
+    text-decoration: underline;
+}
+
+#daily-novels h2,
+#daily-novels h3,
+#book1 article h4 {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+#book1 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#book1 ul li a {
+    color: #5D93E1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#book1 ul li a:hover {
     text-decoration: underline;
 }
