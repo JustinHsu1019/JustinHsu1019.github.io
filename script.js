@@ -1,80 +1,13 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-function hideAllSections() {
-    document.querySelectorAll('main > section').forEach(section => {
-        if (section.id !== 'daily-novels') {
-            section.classList.add('hidden');
-        }
-    });
-}
-
-document.querySelectorAll('nav ul li a').forEach(tab => {
-    tab.addEventListener('click', function (event) {
-        event.preventDefault();
-
-        document.querySelectorAll('main > section').forEach(section => {
-            section.classList.add('hidden');
-        });
-
-        var targetSection = document.querySelector(this.getAttribute('href'));
-        targetSection.classList.remove('hidden');
-
-        var dailyNovelsSection = document.getElementById('daily-novels');
-        if (this.getAttribute('href') === '#daily-novels') {
-            dailyNovelsSection.classList.remove('hidden');
-        } else {
-            dailyNovelsSection.classList.add('hidden');
-        }
-    });
-});
-
 document.getElementById('site-title').addEventListener('click', function () {
     document.getElementById('resume').classList.add('hidden');
     document.getElementById('daily-novels').classList.add('hidden');
 
     document.querySelectorAll('main > section').forEach(section => {
-        if (section.id !== 'resume') {
-            section.classList.remove('hidden');
-        }
-        if (section.id !== 'daily-novels') {
+        if (section.id !== 'resume' && section.id !== 'daily-novels') {
             section.classList.remove('hidden');
         }
     });
 });
-
-document.querySelector('.book-cover').addEventListener('click', function (event) {
-    event.preventDefault();
-    this.style.display = 'none';
-    var bookSection = document.querySelector(this.getAttribute('href'));
-    bookSection.style.display = 'block';
-});
-
-document.querySelectorAll('#book1 ul li a').forEach(chapterLink => {
-    chapterLink.addEventListener('click', function (event) {
-        event.preventDefault();
-
-        var chapterIndex = document.querySelector('#book1 .chap');
-        chapterIndex.style.display = 'none';
-
-        var chapterSectionId = this.getAttribute('href');
-        var chapterSection = document.querySelector(chapterSectionId);
-        chapterSection.classList.remove('hidden');
-    });
-});
-
-function hideAllSubSections(parentSection) {
-    parentSection.querySelectorAll('section').forEach(subSection => {
-        subSection.classList.add('hidden');
-    });
-}
 
 function loadChapterContent(chapterId, filePath) {
     fetch(filePath)
@@ -89,19 +22,77 @@ function loadChapterContent(chapterId, filePath) {
 
 loadChapterContent('#chapter1_c', 'novel.txt');
 
-function addBackButton(parentElementId, targetElementId) {
-    const parentElement = document.querySelector(parentElementId);
-    if (parentElement) {
-        const backButton = document.createElement('button');
-        backButton.innerText = 'Back';
-        backButton.addEventListener('click', function() {
-            document.querySelector(targetElementId).style.display = 'block';
-            parentElement.classList.add('hidden');
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+document.querySelectorAll('nav ul li a').forEach(tab => {
+    tab.addEventListener('click', function (event) {
+        event.preventDefault();
+        document.querySelectorAll('main > section').forEach(section => {
+            section.classList.add('hidden');
         });
 
-        parentElement.insertBefore(backButton, parentElement.firstChild);
+        var targetSection = document.querySelector(this.getAttribute('href'));
+        targetSection.classList.remove('hidden');
+    });
+});
+
+document.querySelector('.book-cover').addEventListener('click', function (event) {
+    event.preventDefault();
+    this.classList.add('hidden');
+    var bookSection = document.querySelector('#book1');
+    bookSection.classList.remove('hidden');
+
+    var chap = document.querySelector('.chap');
+    if (chap.classList.contains('hidden')) {
+        chap.classList.remove('hidden');
     }
+});
+
+function addBackButtonToChapterContent() {
+    const backButton = document.createElement('button');
+    backButton.innerText = 'Back to Chapter Index';
+    backButton.addEventListener('click', function() {
+        document.getElementById('chapter1').classList.add('hidden');
+        document.querySelector('.chap').classList.remove('hidden');
+        document.querySelector('.book-cover').classList.add('hidden');
+    });
+
+    const chapterContent = document.getElementById('chapter1');
+    chapterContent.insertBefore(backButton, chapterContent.firstChild);
 }
 
-addBackButton('#book1 .chap', '.book-cover');
-addBackButton('#chapter1', '#book1 .chap');
+function addBackButtonToChapterIndex() {
+    const backButton = document.createElement('button');
+    backButton.innerText = 'Back to Book Cover';
+    backButton.addEventListener('click', function() {
+        document.querySelector('.chap').classList.add('hidden');
+        document.querySelector('.book-cover').classList.remove('hidden');
+        document.getElementById('chapter1').classList.add('hidden');
+    });
+
+    const chapterIndex = document.querySelector('.chap');
+    chapterIndex.insertBefore(backButton, chapterIndex.firstChild);
+}
+
+addBackButtonToChapterContent();
+addBackButtonToChapterIndex();
+
+document.querySelectorAll('#book1 ul li a').forEach(chapterLink => {
+    chapterLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        const chapterIndex = document.querySelector('.chap');
+        const chapterSectionId = this.getAttribute('href');
+        const chapterSection = document.querySelector(chapterSectionId);
+
+        chapterIndex.classList.add('hidden');
+        chapterSection.classList.remove('hidden');
+        document.querySelector('.book-cover').classList.add('hidden');
+    });
+});
