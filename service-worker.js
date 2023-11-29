@@ -1,4 +1,4 @@
-const CACHE_NAME = 'justin-website-v1';
+const CACHE_NAME = 'justin-website-v2'; // 更新版本號
 const assetsToCache = [
     './',
     './index.html'
@@ -13,14 +13,24 @@ self.addEventListener('install', (event) => {
     );
 });
 
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.map((cacheName) => {
+                    if (cacheName !== CACHE_NAME) {
+                        return caches.delete(cacheName); // 刪除舊的快取
+                    }
+                })
+            );
+        })
+    );
+});
+
 self.addEventListener('fetch', (event) => {
     event.respondWith(
-        caches.match(event.request)
-            .then((response) => {
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request);
-            })
+        fetch(event.request).catch(() => {
+            return caches.match(event.request); // 網絡優先策略
+        })
     );
 });
