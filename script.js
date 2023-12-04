@@ -43,11 +43,26 @@ document.querySelectorAll('nav ul li a').forEach(tab => {
     });
 });
 
-document.querySelectorAll('.book-cover .book-info').forEach(tabcall => {
-    tabcall.addEventListener('click', function (event) {
+document.querySelector('.book-cover').addEventListener('click', function (event) {
     event.preventDefault();
     this.classList.add('hidden');
     document.querySelector('.book-info').classList.add('hidden');
+    var bookSection = document.querySelector('#book1');
+    bookSection.classList.remove('hidden');
+
+    var chap = document.querySelector('.chap');
+    if (chap.classList.contains('hidden')) {
+        chap.classList.remove('hidden');
+    }
+    document.querySelector('#book2').classList.add('hidden');
+    document.querySelector('.book-cover2').classList.add('hidden');
+    document.querySelector('.book-info2').classList.add('hidden');
+});
+
+document.querySelector('.book-info').addEventListener('click', function (event) {
+    event.preventDefault();
+    this.classList.add('hidden');
+    document.querySelector('.book-cover').classList.add('hidden');
     var bookSection = document.querySelector('#book1');
     bookSection.classList.remove('hidden');
 
@@ -105,11 +120,26 @@ document.querySelectorAll('#book1 ul li a').forEach(chapterLink => {
     });
 });
 
-document.querySelectorAll('.book-cover2 .book-info2').forEach(calltab => {
-    calltab.addEventListener('click', function (event) {
+document.querySelector('.book-cover2').addEventListener('click', function (event) {
     event.preventDefault();
     this.classList.add('hidden');
     document.querySelector('.book-info2').classList.add('hidden');
+    var bookSection2 = document.querySelector('#book2');
+    bookSection2.classList.remove('hidden');
+
+    var chap2 = document.querySelector('.chap2');
+    if (chap2.classList.contains('hidden')) {
+        chap2.classList.remove('hidden');
+    }
+    document.querySelector('#book1').classList.add('hidden');
+    document.querySelector('.book-cover').classList.add('hidden');
+    document.querySelector('.book-info').classList.add('hidden');
+});
+
+document.querySelector('.book-info2').addEventListener('click', function (event) {
+    event.preventDefault();
+    this.classList.add('hidden');
+    document.querySelector('.book-cover2').classList.add('hidden');
     var bookSection2 = document.querySelector('#book2');
     bookSection2.classList.remove('hidden');
 
