@@ -147,11 +147,6 @@ section a:hover {
     margin-right: 15px;
 }
 
-.href-cover {
-    width: 150px;
-    height: 200px;
-}
-
 .about-title span {
     font-size: 2rem;
 }
@@ -219,7 +214,8 @@ section a:hover {
 
 #daily-novels h2,
 #daily-novels h3,
-#book1 article h4 {
+#book1 article h4,
+#book2 article h4 {
     color: #333;
     font-size: 1.5rem;
 }
@@ -237,4 +233,76 @@ section a:hover {
 
 #book1 ul li a:hover {
     text-decoration: underline;
+}
+
+#book2 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#book2 ul li a {
+    color: #5D93E1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#book2 ul li a:hover {
+    text-decoration: underline;
+}
+
+.book-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.book {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    /* Spacing between books */
+}
+
+.book-cover {
+    flex-shrink: 0;
+    /* Prevents the image from shrinking */
+    margin-right: 20px;
+    /* Spacing between cover and info */
+}
+
+.book-cover2 {
+    flex-shrink: 0;
+    /* Prevents the image from shrinking */
+    margin-right: 20px;
+    /* Spacing between cover and info */
+}
+
+.href-cover {
+    width: 150px;
+    height: 200px;
+    display: block;
+}
+
+.book-info {
+    flex-grow: 1;
+}
+
+.book-info h3 {
+    margin-top: 0;
+}
+
+.book-info p {
+    margin-bottom: 0;
+}
+
+.book-info2 {
+    flex-grow: 1;
+}
+
+.book-info2 h3 {
+    margin-top: 0;
+}
+
+.book-info2 p {
+    margin-bottom: 0;
 }
