@@ -147,6 +147,11 @@ section a:hover {
     margin-right: 15px;
 }
 
+.href-cover {
+    width: 150px;
+    height: 200px;
+}
+
 .about-title span {
     font-size: 2rem;
 }
