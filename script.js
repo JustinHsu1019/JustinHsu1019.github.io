@@ -43,7 +43,8 @@ document.querySelectorAll('nav ul li a').forEach(tab => {
     });
 });
 
-document.querySelector('.book-cover .book-info').addEventListener('click', function (event) {
+document.querySelectorAll('.book-cover .book-info').forEach(tabcall => {
+    tabcall.addEventListener('click', function (event) {
     event.preventDefault();
     this.classList.add('hidden');
     document.querySelector('.book-info').classList.add('hidden');
@@ -104,7 +105,8 @@ document.querySelectorAll('#book1 ul li a').forEach(chapterLink => {
     });
 });
 
-document.querySelector('.book-cover2 .book-info2').addEventListener('click', function (event) {
+document.querySelectorAll('.book-cover2 .book-info2').forEach(calltab => {
+    calltab.addEventListener('click', function (event) {
     event.preventDefault();
     this.classList.add('hidden');
     document.querySelector('.book-info2').classList.add('hidden');
