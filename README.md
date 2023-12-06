@@ -1,4 +1,4 @@
-# Justin's Website
+# Justin's Notes
 ## Introduction:
 1. This is where I'll place my demo web pages.
 2. I'm also considering using it as a blog in the future.
@@ -7,6 +7,7 @@
 - https://github.com/JustinHsu1019
 
 ## My Web APPs:
-- https://justinhsu1019.github.io/WhiteBoard
-- https://justinhsu1019.github.io/ClashRoyale
+- https://justin-code.com/WhiteBoard
+- https://justin-code.com/ClashRoyale
+- https://justin-code.com/Chat
 - https://justinhsu.000webhostapp.com/mimicstyler
