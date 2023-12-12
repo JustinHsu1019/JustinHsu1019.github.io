@@ -26,6 +26,7 @@ function generateCards() {
     const gap = 5;
     const totalWidthFor4Cards = 4 * cardWidth + 3 * gap;
     const shiftRight = 65;
+
     let initialCards = Array(8).fill().map((_, i) => ({
         x: (600 - totalWidthFor4Cards) / 2 + (i % 4) * (cardWidth + gap) + shiftRight,
         y: 850,
@@ -33,8 +34,21 @@ function generateCards() {
         height: cardHeight,
         dragging: false,
         label: i + 1,
-        visible: i < 4
+        visible: i < 4,
+        img: new Image(),
+        src: `cards/${i + 1}.webp`
     }));
+
+    let loadedImages = 0;
+    initialCards.forEach(card => {
+        card.img.addEventListener('load', () => {
+            loadedImages++;
+            if (loadedImages === initialCards.length) {
+                draw();
+            }
+        });
+        card.img.src = card.src;
+    });
 
     return initialCards;
 }
@@ -97,6 +111,14 @@ function draw() {
 
     cards.forEach((card, _) => {
         if (card.visible) {
+            ctx.drawImage(card.img, card.x, card.y, card.width, card.height);
+        }
+    });
+
+    playedCards.forEach((card, _) => {
+        if (card.img) {
+            ctx.drawImage(card.img, card.x, card.y, card.width, card.height);
+        } else {
             ctx.fillStyle = "black";
             ctx.fillRect(card.x, card.y, card.width, card.height);
             ctx.fillStyle = "#F7E8AA";
@@ -105,17 +127,6 @@ function draw() {
             ctx.fillStyle = "black";
             ctx.fillText(card.label, card.x + card.width / 2 - 10, card.y + card.height / 2 + 10);
         }
-    });
-
-    playedCards.forEach((card, _) => {
-        ctx.fillStyle = "black";
-        ctx.fillRect(card.x, card.y, card.width, card.height);
-        ctx.fillStyle = "#F7E8AA";
-        ctx.fillRect(card.x + 5, card.y + 5, card.width - 10, card.height - 10);
-
-        ctx.font = "25px Arial";
-        ctx.fillStyle = "black";
-        ctx.fillText(card.label, card.x + card.width / 2 - 10, card.y + card.height / 2 + 10);
     });
 }
 
@@ -132,8 +143,8 @@ function startDrag(event) {
                 card.dragging = true;
 
                 if (point.y < 850 * scaleHeight) {
-                    card.width *= 0.8;
-                    card.height *= 0.8;
+                    card.width *= 0.90;
+                    card.height *= 0.90;
                 }
 
                 draw();
@@ -150,8 +161,8 @@ function drag(event) {
             card.y = point.y / scaleHeight - card.height / 2;
 
             if (card.y < 800 && card.width === 95) {
-                card.width *= 0.8;
-                card.height *= 0.8;
+                card.width *= 0.90;
+                card.height *= 0.90;
                 card.x = point.x / scaleWidth - card.width / 2;
                 card.y = point.y / scaleHeight - card.height / 2;
             }
@@ -206,11 +217,12 @@ function endDrag(_) {
                     playedCards.push({
                         x: card.x,
                         y: card.y,
-                        width: card.width * 0.8,
-                        height: card.height * 0.8,
+                        width: card.width * 0.90,
+                        height: card.height * 0.90,
                         label: card.label,
                         moving: true,
-                        onChannel: false
+                        onChannel: false,
+                        img: card.img
                     });
 
                     card.label += 4;
