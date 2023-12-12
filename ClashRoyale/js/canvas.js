@@ -243,28 +243,35 @@ function getNearestChannelCenter(card) {
 function movePlayedCards() {
     playedCards.forEach(card => {
         if (card.moving) {
-            if (!card.onChannel) {
-                const nearestChannelCenter = getNearestChannelCenter(card);
-                if (card.x < nearestChannelCenter) {
-                    card.x += CARD_MOVE_SPEED;
-                    if (card.x > nearestChannelCenter) {
-                        card.x = nearestChannelCenter;
-                        card.onChannel = true;
+            let nearTower = false;
+
+            towersCoords.forEach(tower => {
+                if (intersects(card, tower)) {
+                    nearTower = true;
+                    if (cardCrossedCenterLine(card)) {
+                        card.y += CARD_MOVE_SPEED;
+                    } else {
+                        card.y -= CARD_MOVE_SPEED;
                     }
-                } else if (card.x > nearestChannelCenter) {
-                    card.x -= CARD_MOVE_SPEED;
-                    if (card.x < nearestChannelCenter) {
+                }
+            });
+
+            if (!nearTower) {
+                if (!card.onChannel) {
+                    const nearestChannelCenter = getNearestChannelCenter(card);
+                    card.x += (card.x < nearestChannelCenter) ? CARD_MOVE_SPEED : -CARD_MOVE_SPEED;
+                    if (Math.abs(card.x - nearestChannelCenter) < CARD_MOVE_SPEED) {
                         card.x = nearestChannelCenter;
                         card.onChannel = true;
                     }
                 }
-            }
 
-            if (card.onChannel) {
-                card.y -= CARD_MOVE_SPEED;
-                if (card.y <= 0) {
-                    card.y = 0;
-                    card.moving = false;
+                if (card.onChannel) {
+                    card.y -= CARD_MOVE_SPEED;
+                    if (card.y <= 0) {
+                        card.y = 0;
+                        card.moving = false;
+                    }
                 }
             }
         }
