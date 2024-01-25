@@ -1,4 +1,4 @@
-const CACHE_NAME = 'justin-website-v2'; // 更新版本號
+const CACHE_NAME = 'justin-code'; // 更新版本號
 const assetsToCache = [
     './',
     './index.html'
