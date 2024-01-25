@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="icon.png" />
     <link rel="stylesheet" href="styles.css">
     <meta name="google-signin-client_id"
-        content="馬上要有資料了 ...">
+        content="43544314186-fotv65jt6dcsabk5fb2ke1p9e68qar11.apps.googleusercontent.com">
     <style>
         body {
             margin: 0;
@@ -42,7 +42,7 @@
     <script>
         window.onload = function () {
             google.accounts.id.initialize({
-                client_id: "馬上要有資料了 ...",
+                client_id: "43544314186-fotv65jt6dcsabk5fb2ke1p9e68qar11.apps.googleusercontent.com",
                 callback: onSignIn
             });
 
@@ -54,7 +54,7 @@
 
         function onSignIn(googleUser) {
             var id_token = googleUser.credential;
-            fetch('https://127.0.0.1:5000/google_login', {
+            fetch('https://justincode.pythonanywhere.com/google_login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
