@@ -335,12 +335,3 @@ section a:hover {
     font-size: 1.2rem;
     color: #666;
 }
-
-@media only screen and (max-width: 600px) {
-    .title {
-        font-size: 48px;
-    }
-    img {
-        width: 100%;
-    }
-}
