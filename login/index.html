@@ -64,10 +64,12 @@
                 .then(response => response.json())
                 .then(data => {
                     alert("登入成功！");
-                    console.log(JSON.stringify(data));
+                    alert(JSON.stringify(data));
+                    window.location.href = 'https://justin-code.com';
                 })
                 .catch(error => {
                     console.error('Error:', error);
+                    alert("登入失敗！");
                     alert('Error: ' + error);
                 });
         }
