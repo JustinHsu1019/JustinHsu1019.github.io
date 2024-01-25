@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link rel="icon" type="image/png" href="icon.png" />
+    <meta name="google-signin-client_id"
+        content="馬上要有資料了 ...">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #101014;
+        }
+
+        .title {
+            color: white;
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="signin-container">
+        <img src="avatar.png" alt="Icon" style="width: 200px; height: auto;">
+        <br><br>
+        <div class="title">&nbsp;&nbsp;&nbsp;Justin Code&nbsp;</div>
+        <div id="g_id_signin" class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
+            data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: "馬上要有資料了 ...",
+                callback: onSignIn
+            });
+
+            google.accounts.id.renderButton(
+                document.getElementById('g_id_signin'),
+                { theme: 'outline', size: 'large' }
+            );
+        };
+
+        function onSignIn(googleUser) {
+            var id_token = googleUser.credential;
+            fetch('https://127.0.0.1:5000/google_login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ idToken: id_token })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert("登入成功！");
+                    console.log(JSON.stringify(data));
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error: ' + error);
+                });
+        }
+    </script>
+</body>
+
+</html>
