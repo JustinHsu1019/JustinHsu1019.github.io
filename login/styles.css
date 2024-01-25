@@ -3,6 +3,17 @@
         font-size: 48px;
     }
     img {
+        width: 80%;
+        height: auto;
+    }
+
+    #signin-container {
+        width: 90%;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .g_id_signin {
         width: 100%;
     }
 }
