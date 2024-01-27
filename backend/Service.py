@@ -119,7 +119,7 @@ def send_push_notification(subscription_info, message_body):
             vapid_private_key=VAPID_PRIVATE_KEY,
             vapid_claims=VAPID_CLAIMS
         )
-        app.logger.debug("webpush(response): " + response)
+        app.logger.debug("webpush(response): " + str(response))
         return response
     except WebPushException as ex:
         print("Web push failed: {}", repr(ex))
