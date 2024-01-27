@@ -240,6 +240,7 @@ function subscribeUserToPush() {
     })
     .then(function(pushSubscription) {
         console.log('接收到推送訂閱:', JSON.stringify(pushSubscription));
+        alert('接收到推送訂閱:', JSON.stringify(pushSubscription));
         sendSubscriptionToBackEnd(pushSubscription);
         return pushSubscription;
     });
@@ -255,15 +256,17 @@ function sendSubscriptionToBackEnd(subscription) {
     })
     .then(function(response) {
         if (!response.ok) {
-            throw new Error('無法訂閱推送服務');
+            throw new Error('無法訂閱推送服務，響應狀態: ' + response.status);
         }
         return response.json();
     })
     .then(function(responseData) {
         console.log('訂閱成功:', responseData);
+        alert('訂閱成功:', responseData);
     })
     .catch(function(error) {
         console.error('訂閱推送服務出錯:', error);
+        alert('訂閱推送服務出錯: ' + error.message);
     });
 }
 
@@ -294,8 +297,20 @@ function sendLeaveNotification() {
         },
         body: JSON.stringify({ message: 'byebye' })
     })
-    .then(response => response.json())
-    .then(data => console.log(data));
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('發送離開通知失敗，響應狀態: ' + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('離開通知發送成功:', data);
+        alert('離開通知發送成功:', data);
+    })
+    .catch(error => {
+        console.error('發送離開通知出錯:', error);
+        alert('發送離開通知出錯: ' + error.message);
+    });
 }
 
 function initApp() {
