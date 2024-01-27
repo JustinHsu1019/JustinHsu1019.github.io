@@ -230,7 +230,9 @@ function requestNotificationPermission() {
 }
 
 function subscribeUserToPush() {
+    alert('in 通知許可');
     navigator.serviceWorker.ready.then(function(registration) {
+        alert('in nav');
         const subscribeOptions = {
             userVisibleOnly: true,
             applicationServerKey: urlBase64ToUint8Array('YOUR_PUBLIC_VAPID_KEY')
@@ -239,6 +241,7 @@ function subscribeUserToPush() {
         return registration.pushManager.subscribe(subscribeOptions);
     })
     .then(function(pushSubscription) {
+        alert('in TT');
         console.log('接收到推送訂閱:', JSON.stringify(pushSubscription));
         alert('接收到推送訂閱:', JSON.stringify(pushSubscription));
         sendSubscriptionToBackEnd(pushSubscription);
