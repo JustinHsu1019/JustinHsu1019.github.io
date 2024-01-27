@@ -209,3 +209,83 @@ function loadChapterContent2(chapterId, filePath) {
 }
 
 loadChapterContent2('#chapter1_c2', 'blog.txt');
+
+function requestNotificationPermission() {
+    if ('Notification' in window) {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                console.log('通知許可已獲得');
+                subscribeUserToPush();
+            }
+        });
+    }
+}
+
+function subscribeUserToPush() {
+    navigator.serviceWorker.ready.then(function(registration) {
+        const subscribeOptions = {
+            userVisibleOnly: true,
+            applicationServerKey: urlBase64ToUint8Array('YOUR_PUBLIC_VAPID_KEY')
+        };
+
+        return registration.pushManager.subscribe(subscribeOptions);
+    })
+    .then(function(pushSubscription) {
+        console.log('接收到推送訂閱:', JSON.stringify(pushSubscription));
+        sendSubscriptionToBackEnd(pushSubscription);
+        return pushSubscription;
+    });
+}
+
+function sendSubscriptionToBackEnd(subscription) {
+    fetch('https://justincode.pythonanywhere.com/subscribe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(subscription)
+    })
+    .then(function(response) {
+        if (!response.ok) {
+            throw new Error('無法訂閱推送服務');
+        }
+        return response.json();
+    })
+    .then(function(responseData) {
+        console.log('訂閱成功:', responseData);
+    })
+    .catch(function(error) {
+        console.error('訂閱推送服務出錯:', error);
+    });
+}
+
+function urlBase64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding)
+        .replace(/\-/g, '+')
+        .replace(/_/g, '/');
+
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+
+    for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+}
+
+window.addEventListener('beforeunload', function(event) {
+    sendLeaveNotification();
+});
+
+function sendLeaveNotification() {
+    fetch('https://justincode.pythonanywhere.com/notify-leave', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: 'byebye' })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data));
+}

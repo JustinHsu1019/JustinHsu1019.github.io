@@ -1,4 +1,4 @@
-const CACHE_NAME = 'justin-code'; // 更新版本號
+const CACHE_NAME = 'justin-code';
 const assetsToCache = [
     './',
     './index.html'
@@ -19,7 +19,7 @@ self.addEventListener('activate', (event) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
                     if (cacheName !== CACHE_NAME) {
-                        return caches.delete(cacheName); // 刪除舊的快取
+                        return caches.delete(cacheName);
                     }
                 })
             );
@@ -30,7 +30,26 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
     event.respondWith(
         fetch(event.request).catch(() => {
-            return caches.match(event.request); // 網絡優先策略
+            return caches.match(event.request);
         })
+    );
+});
+
+self.addEventListener('push', event => {
+    let data = {};
+
+    if (event.data) {
+        data = event.data.json();
+    }
+
+    const title = data.title || 'Justin Code 通知';
+    const options = {
+        body: data.body || '您有新的消息',
+        icon: 'favicon.png',
+        badge: 'favicon.png'
+    };
+
+    event.waitUntil(
+        self.registration.showNotification(title, options)
     );
 });
