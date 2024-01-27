@@ -220,6 +220,7 @@ function requestNotificationPermission() {
                 alert('通知許可已獲得');
                 console.log('通知許可已獲得');
                 subscribeUserToPush();
+                alert('in 通知許可sec');
             } else {
                 alert('通知許可未獲得: ' + permission);
             }
