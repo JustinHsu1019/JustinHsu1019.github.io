@@ -211,9 +211,13 @@ function loadChapterContent2(chapterId, filePath) {
 loadChapterContent2('#chapter1_c2', 'blog.txt');
 
 function requestNotificationPermission() {
+    alert('1');
     if ('Notification' in window) {
+        alert('2');
         Notification.requestPermission().then(permission => {
+            alert('3');
             if (permission === 'granted') {
+                alert('通知許可已獲得');
                 console.log('通知許可已獲得');
                 subscribeUserToPush();
             }
