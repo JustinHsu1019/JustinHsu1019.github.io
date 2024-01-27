@@ -233,10 +233,10 @@ function requestNotificationPermission() {
 function subscribeUserToPush() {
     alert('in 通知許可');
     navigator.serviceWorker.ready.then(function(registration) {
-        alert('in nav');
+        alert('in nav aginaa');
         const subscribeOptions = {
             userVisibleOnly: true,
-            applicationServerKey: urlBase64ToUint8Array('YOUR_PUBLIC_VAPID_KEY')
+            applicationServerKey: urlBase64ToUint8Array('BML9uYlsJUmBtRzgEOpXAGb0S6-wCjd67sJ6KoifY_gmeEdnHGGYIwvljaWePooheQsC3BbBi3f4izn9F50byS8')
         };
 
         return registration.pushManager.subscribe(subscribeOptions);
