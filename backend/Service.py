@@ -6,13 +6,27 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 from google.cloud.firestore_v1.document import DocumentReference
 
-import jwt, requests
+import jwt, json, requests
 from functools import wraps
 from datetime import timedelta
 from config import JWT_SECRET_KEY
+from pywebpush import webpush, WebPushException
+
+import logging
+from logging.handlers import RotatingFileHandler
+
+def setup_logger():
+    handler = RotatingFileHandler('debug.log', maxBytes=10000, backupCount=3)
+    handler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    handler.setFormatter(formatter)
+
+    app.logger.addHandler(handler)
+    app.logger.setLevel(logging.DEBUG)
 
 app = Flask(__name__)
 CORS(app)
+setup_logger()
 
 app.config['JWT_SECRET_KEY'] = JWT_SECRET_KEY
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=24)
@@ -90,6 +104,52 @@ def custom_google_login():
     except Exception as e:
         print("Error during Google login:", e)
         return jsonify(message="Google login failed"), 401
+
+VAPID_PRIVATE_KEY = '_seMXNLr8iV3ZBFCo6V9m4MQWXvzyYgz5TSeccTvL3g'
+VAPID_PUBLIC_KEY = 'BML9uYlsJUmBtRzgEOpXAGb0S6-wCjd67sJ6KoifY_gmeEdnHGGYIwvljaWePooheQsC3BbBi3f4izn9F50byS8'
+VAPID_CLAIMS = {
+    "sub": "mailto:justin.hsu.1019@gmail.com"
+}
+
+def send_push_notification(subscription_info, message_body):
+    try:
+        response = webpush(
+            subscription_info=subscription_info,
+            data=json.dumps(message_body),
+            vapid_private_key=VAPID_PRIVATE_KEY,
+            vapid_claims=VAPID_CLAIMS
+        )
+        app.logger.debug("webpush(response): " + response)
+        return response
+    except WebPushException as ex:
+        print("Web push failed: {}", repr(ex))
+        app.logger.debug("Web push failed: {}", repr(ex))
+        return None
+
+@app.route('/notify-leave', methods=['POST'])
+def notify_leave():
+    message = request.json.get('message', 'byebye')
+    app.logger.debug("message: " + message)
+    send_push_notification_to_all(message)
+    return jsonify({"status": "success", "message": "通知已發送"})
+
+def send_push_notification_to_all(message):
+    subscriptions = db.collection('subscriptions').get()
+    for subscription in subscriptions:
+        subscription_info = subscription.to_dict()
+        send_push_notification(subscription_info, {"title": "通知", "body": message})
+
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    subscription_info = request.json
+    try:
+        db.collection('subscriptions').add(subscription_info)
+        app.logger.debug("訂閱成功")
+        return jsonify({"status": "success", "message": "訂閱成功"})
+    except Exception as e:
+        print(e)
+        app.logger.debug("訂閱失敗, 錯誤訊息: " + e)
+        return jsonify({"status": "error", "message": "訂閱失敗"}), 500
 
 @app.route('/create', methods=['POST'])
 @jwt_required_custom
