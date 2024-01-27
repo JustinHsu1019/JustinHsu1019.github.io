@@ -211,16 +211,20 @@ function loadChapterContent2(chapterId, filePath) {
 loadChapterContent2('#chapter1_c2', 'blog.txt');
 
 function requestNotificationPermission() {
-    alert('1');
+    alert('1a');
     if ('Notification' in window) {
-        alert('2');
+        alert('2a');
         Notification.requestPermission().then(permission => {
-            alert('3');
+            alert('3a');
             if (permission === 'granted') {
                 alert('通知許可已獲得');
                 console.log('通知許可已獲得');
                 subscribeUserToPush();
+            } else {
+                alert('通知許可未獲得: ' + permission);
             }
+        }).catch(error => {
+            alert('錯誤發生: ' + error);
         });
     }
 }
