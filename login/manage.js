@@ -8,6 +8,10 @@ function getHeaders() {
     };
 }
 
+function backhome() {
+    window.location.href = 'https://justin-code.com'; 
+}
+
 function readUser() {
     const email = $('#email').val();
     $.ajax({
