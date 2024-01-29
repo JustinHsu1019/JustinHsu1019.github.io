@@ -96,9 +96,20 @@ def custom_google_login():
             user_email = decoded_token.get('email')
             user_name = decoded_token.get('name')
             user_picture = decoded_token.get('picture')
+
+            existing_user = db.collection('users').where('email', '==', user_email).limit(1).get()
+            if len(existing_user) == 0:
+                new_user_data = {
+                    "email": user_email,
+                    "name": user_name,
+                    "picture": user_picture,
+                    "role": "insider"
+                }
+                db.collection('users').add(new_user_data)
+
             user_info = {"email": user_email, "name": user_name, "picture": user_picture}
             access_token = create_access_token(identity=user_info)
-            return jsonify(access_token=access_token), 200
+            return jsonify(access_token=access_token, email=user_email), 200
         else:
             return jsonify(message="Google login failed"), 401
     except Exception as e:
