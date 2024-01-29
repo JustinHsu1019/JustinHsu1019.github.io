@@ -211,29 +211,31 @@ function loadChapterContent2(chapterId, filePath) {
 loadChapterContent2('#chapter1_c2', 'blog.txt');
 
 function requestNotificationPermission() {
-    alert('1a');
+    // alert('1a');
     if ('Notification' in window) {
-        alert('2a');
+        // alert('2a');
         Notification.requestPermission().then(permission => {
-            alert('3a');
+            // alert('3a');
             if (permission === 'granted') {
-                alert('通知許可已獲得');
+                // alert('通知許可已獲得');
                 console.log('通知許可已獲得');
                 subscribeUserToPush();
-                alert('in 通知許可sec');
+                // alert('in 通知許可sec');
             } else {
-                alert('通知許可未獲得: ' + permission);
+                // alert('通知許可未獲得: ' + permission);
+                console.log('通知許可未獲得: ' + permission);
             }
         }).catch(error => {
-            alert('錯誤發生: ' + error);
+            // alert('錯誤發生: ' + error);
+            console.log('錯誤發生: ' + error);
         });
     }
 }
 
 function subscribeUserToPush() {
-    alert('in 通知許可');
+    // alert('in 通知許可');
     navigator.serviceWorker.ready.then(function(registration) {
-        alert('in nav aginaa');
+        // alert('in nav aginaa');
         const subscribeOptions = {
             userVisibleOnly: true,
             applicationServerKey: urlBase64ToUint8Array('BML9uYlsJUmBtRzgEOpXAGb0S6-wCjd67sJ6KoifY_gmeEdnHGGYIwvljaWePooheQsC3BbBi3f4izn9F50byS8')
@@ -242,9 +244,9 @@ function subscribeUserToPush() {
         return registration.pushManager.subscribe(subscribeOptions);
     })
     .then(function(pushSubscription) {
-        alert('in TT');
+        // alert('in TT');
         console.log('接收到推送訂閱:', JSON.stringify(pushSubscription));
-        alert('接收到推送訂閱:', JSON.stringify(pushSubscription));
+        // alert('接收到推送訂閱:', JSON.stringify(pushSubscription));
         sendSubscriptionToBackEnd(pushSubscription);
         return pushSubscription;
     });
@@ -266,11 +268,11 @@ function sendSubscriptionToBackEnd(subscription) {
     })
     .then(function(responseData) {
         console.log('訂閱成功:', responseData);
-        alert('訂閱成功:', responseData);
+        // alert('訂閱成功:', responseData);
     })
     .catch(function(error) {
         console.error('訂閱推送服務出錯:', error);
-        alert('訂閱推送服務出錯: ' + error.message);
+        // alert('訂閱推送服務出錯: ' + error.message);
     });
 }
 
@@ -309,11 +311,11 @@ function sendLeaveNotification() {
     })
     .then(data => {
         console.log('離開通知發送成功:', data);
-        alert('離開通知發送成功:', data);
+        // alert('離開通知發送成功:', data);
     })
     .catch(error => {
         console.error('發送離開通知出錯:', error);
-        alert('發送離開通知出錯: ' + error.message);
+        // alert('發送離開通知出錯: ' + error.message);
     });
 }
 
