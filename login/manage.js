@@ -9,7 +9,7 @@ function getHeaders() {
 }
 
 function backhome() {
-    window.location.href = 'https://justin-code.com'; 
+    window.location.href = 'https://justin-code.com';
 }
 
 function readUser() {
@@ -18,13 +18,13 @@ function readUser() {
         url: `${apiUrl}/read_member/${email}`,
         method: 'GET',
         headers: getHeaders(),
-        success: function(response) {
+        success: function (response) {
             $('#name').val(response.name);
             $('#role').val(response.role);
             $('#gender').val(response.gender);
             $('#instagram').val(response.instagram);
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             alert(xhr.responseText);
         }
     });
@@ -44,10 +44,10 @@ function updateUser() {
         method: 'PUT',
         headers: getHeaders(),
         data: JSON.stringify(userData),
-        success: function(response) {
+        success: function (response) {
             alert(response.message);
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             alert(xhr.responseText);
         }
     });
@@ -59,16 +59,16 @@ function deleteUser() {
         url: `${apiUrl}/delete_member/${email}`,
         method: 'DELETE',
         headers: getHeaders(),
-        success: function(response) {
+        success: function (response) {
             alert(response.message);
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             alert(xhr.responseText);
         }
     });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     var userEmail = localStorage.getItem('userEmail');
     if (userEmail) {
         $('#email').val(userEmail);
