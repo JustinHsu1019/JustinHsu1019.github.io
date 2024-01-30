@@ -234,7 +234,7 @@ function requestNotificationPermission() {
 
 function subscribeUserToPush() {
     // alert('in 通知許可');
-    navigator.serviceWorker.ready.then(function(registration) {
+    navigator.serviceWorker.ready.then(function (registration) {
         // alert('in nav aginaa');
         const subscribeOptions = {
             userVisibleOnly: true,
@@ -243,13 +243,13 @@ function subscribeUserToPush() {
 
         return registration.pushManager.subscribe(subscribeOptions);
     })
-    .then(function(pushSubscription) {
-        // alert('in TT');
-        console.log('接收到推送訂閱:', JSON.stringify(pushSubscription));
-        // alert('接收到推送訂閱:', JSON.stringify(pushSubscription));
-        sendSubscriptionToBackEnd(pushSubscription);
-        return pushSubscription;
-    });
+        .then(function (pushSubscription) {
+            // alert('in TT');
+            console.log('接收到推送訂閱:', JSON.stringify(pushSubscription));
+            // alert('接收到推送訂閱:', JSON.stringify(pushSubscription));
+            sendSubscriptionToBackEnd(pushSubscription);
+            return pushSubscription;
+        });
 }
 
 function sendSubscriptionToBackEnd(subscription) {
@@ -260,20 +260,20 @@ function sendSubscriptionToBackEnd(subscription) {
         },
         body: JSON.stringify(subscription)
     })
-    .then(function(response) {
-        if (!response.ok) {
-            throw new Error('無法訂閱推送服務，響應狀態: ' + response.status);
-        }
-        return response.json();
-    })
-    .then(function(responseData) {
-        console.log('訂閱成功:', responseData);
-        // alert('訂閱成功:', responseData);
-    })
-    .catch(function(error) {
-        console.error('訂閱推送服務出錯:', error);
-        // alert('訂閱推送服務出錯: ' + error.message);
-    });
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('無法訂閱推送服務，響應狀態: ' + response.status);
+            }
+            return response.json();
+        })
+        .then(function (responseData) {
+            console.log('訂閱成功:', responseData);
+            // alert('訂閱成功:', responseData);
+        })
+        .catch(function (error) {
+            console.error('訂閱推送服務出錯:', error);
+            // alert('訂閱推送服務出錯: ' + error.message);
+        });
 }
 
 function urlBase64ToUint8Array(base64String) {
@@ -291,7 +291,7 @@ function urlBase64ToUint8Array(base64String) {
     return outputArray;
 }
 
-window.addEventListener('beforeunload', function(event) {
+window.addEventListener('beforeunload', function (event) {
     sendLeaveNotification();
 });
 
@@ -303,20 +303,20 @@ function sendLeaveNotification() {
         },
         body: JSON.stringify({ message: 'byebye' })
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('發送離開通知失敗，響應狀態: ' + response.status);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('離開通知發送成功:', data);
-        // alert('離開通知發送成功:', data);
-    })
-    .catch(error => {
-        console.error('發送離開通知出錯:', error);
-        // alert('發送離開通知出錯: ' + error.message);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('發送離開通知失敗，響應狀態: ' + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('離開通知發送成功:', data);
+            // alert('離開通知發送成功:', data);
+        })
+        .catch(error => {
+            console.error('發送離開通知出錯:', error);
+            // alert('發送離開通知出錯: ' + error.message);
+        });
 }
 
 function initApp() {
