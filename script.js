@@ -31,18 +31,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-document.querySelectorAll('nav ul li a').forEach(tab => {
-    tab.addEventListener('click', function (event) {
-        event.preventDefault();
-        document.querySelectorAll('main > section').forEach(section => {
-            section.classList.add('hidden');
-        });
-
-        var targetSection = document.querySelector(this.getAttribute('href'));
-        targetSection.classList.remove('hidden');
-    });
-});
-
 document.querySelector('.book-cover').addEventListener('click', function (event) {
     event.preventDefault();
     this.classList.add('hidden');
