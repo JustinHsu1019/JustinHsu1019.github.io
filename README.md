@@ -10,4 +10,4 @@
 - https://justin-code.com/WhiteBoard
 - https://justin-code.com/ClashRoyale
 - https://justin-code.com/Chat
-- https://justinhsu.000webhostapp.com/mimicstyler
+- https://justin-code.com/mimicstyler
