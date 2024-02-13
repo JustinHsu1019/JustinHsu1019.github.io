@@ -13,14 +13,17 @@ function loadChapterContent(chapterId, filePath) {
     fetch(filePath)
         .then(response => response.text())
         .then(text => {
-            document.querySelector(chapterId).innerHTML = text;
+            const chapters = text.split('justincode');
+            const chapterIndex = parseInt(chapterId.replace('#chapter', ''), 10) - 1;
+            document.querySelector(chapterId + '_c').innerHTML = chapters[chapterIndex];
         })
         .catch(error => {
             console.error('Error loading chapter:', error);
         });
 }
 
-loadChapterContent('#chapter1_c', 'novel.txt');
+loadChapterContent('#chapter1', 'novel.txt');
+loadChapterContent('#chapter2', 'novel.txt');
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -47,31 +50,15 @@ document.querySelector('.book-cover').addEventListener('click', function (event)
     document.querySelector('.book-info2').classList.add('hidden');
 });
 
-// document.querySelector('.book-info').addEventListener('click', function (event) {
-//     event.preventDefault();
-//     this.classList.add('hidden');
-//     document.querySelector('.book-cover').classList.add('hidden');
-//     var bookSection = document.querySelector('#book1');
-//     bookSection.classList.remove('hidden');
-
-//     var chap = document.querySelector('.chap');
-//     if (chap.classList.contains('hidden')) {
-//         chap.classList.remove('hidden');
-//     }
-//     document.querySelector('#book2').classList.add('hidden');
-//     document.querySelector('.book-cover2').classList.add('hidden');
-//     document.querySelector('.book-info2').classList.add('hidden');
-// });
-
-function addBackButtonToChapterContent() {
+function addBackButtonToChapterContent(chapterId) {
     const backButton = document.createElement('button');
     backButton.innerText = 'Back to Chapter Index';
     backButton.addEventListener('click', function () {
-        document.getElementById('chapter1').classList.add('hidden');
+        document.getElementById(chapterId).classList.add('hidden');
         document.querySelector('.chap').classList.remove('hidden');
     });
 
-    const chapterContent = document.getElementById('chapter1');
+    const chapterContent = document.getElementById(chapterId);
     chapterContent.insertBefore(backButton, chapterContent.firstChild);
 }
 
@@ -81,6 +68,7 @@ function addBackButtonToChapterIndex() {
     backButton.addEventListener('click', function () {
         document.querySelector('.chap').classList.add('hidden');
         document.getElementById('chapter1').classList.add('hidden');
+        document.getElementById('chapter2').classList.add('hidden');
         document.querySelector('.book-cover').classList.remove('hidden');
         document.querySelector('.book-info').classList.remove('hidden');
         document.querySelector('.book-cover2').classList.remove('hidden');
@@ -91,7 +79,8 @@ function addBackButtonToChapterIndex() {
     chapterIndex.insertBefore(backButton, chapterIndex.firstChild);
 }
 
-addBackButtonToChapterContent();
+addBackButtonToChapterContent('chapter1');
+addBackButtonToChapterContent('chapter2');
 addBackButtonToChapterIndex();
 
 document.querySelectorAll('#book1 ul li a').forEach(chapterLink => {
@@ -123,22 +112,6 @@ document.querySelector('.book-cover2').addEventListener('click', function (event
     document.querySelector('.book-cover').classList.add('hidden');
     document.querySelector('.book-info').classList.add('hidden');
 });
-
-// document.querySelector('.book-info2').addEventListener('click', function (event) {
-//     event.preventDefault();
-//     this.classList.add('hidden');
-//     document.querySelector('.book-cover2').classList.add('hidden');
-//     var bookSection2 = document.querySelector('#book2');
-//     bookSection2.classList.remove('hidden');
-
-//     var chap2 = document.querySelector('.chap2');
-//     if (chap2.classList.contains('hidden')) {
-//         chap2.classList.remove('hidden');
-//     }
-//     document.querySelector('#book1').classList.add('hidden');
-//     document.querySelector('.book-cover').classList.add('hidden');
-//     document.querySelector('.book-info').classList.add('hidden');
-// });
 
 function addBackButtonToChapterContent2() {
     const backButton2 = document.createElement('button');
