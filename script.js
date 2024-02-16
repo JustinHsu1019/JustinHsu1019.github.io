@@ -113,15 +113,15 @@ document.querySelector('.book-cover2').addEventListener('click', function (event
     document.querySelector('.book-info').classList.add('hidden');
 });
 
-function addBackButtonToChapterContent2() {
+function addBackButtonToChapterContent2(chapterid2) {
     const backButton2 = document.createElement('button');
     backButton2.innerText = 'Back to Chapter Index';
     backButton2.addEventListener('click', function () {
-        document.getElementById('chapter12').classList.add('hidden');
+        document.getElementById(chapterid2).classList.add('hidden');
         document.querySelector('.chap2').classList.remove('hidden');
     });
 
-    const chapterContent2 = document.getElementById('chapter12');
+    const chapterContent2 = document.getElementById(chapterid2);
     chapterContent2.insertBefore(backButton2, chapterContent2.firstChild);
 }
 
@@ -130,7 +130,8 @@ function addBackButtonToChapterIndex2() {
     backButton2.innerText = 'Back to Book Cover';
     backButton2.addEventListener('click', function () {
         document.querySelector('.chap2').classList.add('hidden');
-        document.getElementById('chapter12').classList.add('hidden');
+        document.getElementById('chapter21').classList.add('hidden');
+        document.getElementById('chapter22').classList.add('hidden');
         document.querySelector('.book-cover').classList.remove('hidden');
         document.querySelector('.book-info').classList.remove('hidden');
         document.querySelector('.book-cover2').classList.remove('hidden');
@@ -141,7 +142,8 @@ function addBackButtonToChapterIndex2() {
     chapterIndex2.insertBefore(backButton2, chapterIndex2.firstChild);
 }
 
-addBackButtonToChapterContent2();
+addBackButtonToChapterContent2('chapter21');
+addBackButtonToChapterContent2('chapter22');
 addBackButtonToChapterIndex2();
 
 document.querySelectorAll('#book2 ul li a').forEach(chapterLink => {
@@ -162,14 +164,17 @@ function loadChapterContent2(chapterId, filePath) {
     fetch(filePath)
         .then(response => response.text())
         .then(text => {
-            document.querySelector(chapterId).innerHTML = text;
+            const chapters = text.split('justinblog');
+            const chapterIndex = parseInt(chapterId.replace('#chapter', ''), 10) - 1;
+            document.querySelector(chapterId + '_c2').innerHTML = chapters[chapterIndex];
         })
         .catch(error => {
             console.error('Error loading chapter:', error);
         });
 }
 
-loadChapterContent2('#chapter1_c2', 'blog.txt');
+loadChapterContent2('#chapter1', 'blog.txt');
+loadChapterContent2('#chapter2', 'blog.txt');
 
 function requestNotificationPermission() {
     // alert('1a');
