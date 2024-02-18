@@ -5,19 +5,18 @@ function adjustCanvasSize() {
     if (window.innerWidth >= window.innerHeight) {
         canvas.width = window.innerHeight * 0.96 * (600 / 980);
         canvas.height = window.innerHeight * 0.96;
-        alert("目前尚不支援 PC 版，請見諒");
+        alert("歡迎進入遊戲！您現在是 PC 模式");
     } else {
         canvas.width = window.innerWidth * 0.96;
         canvas.height = window.innerHeight * 0.96;
         alert("歡迎進入遊戲！您現在是 PE 模式");
     }
-
-    const scaleWidth = canvas.width / 600;
-    const scaleHeight = canvas.height / 980;
-    ctx.scale(scaleWidth, scaleHeight);
 }
 
 adjustCanvasSize();
+const scaleWidth = canvas.width / 600;
+const scaleHeight = canvas.height / 980;
+ctx.scale(scaleWidth, scaleHeight);
 window.addEventListener('resize', adjustCanvasSize);
 
 const CARD_MOVE_SPEED = 20;
