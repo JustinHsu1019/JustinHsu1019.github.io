@@ -1,11 +1,22 @@
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth * 0.96;
-canvas.height = window.innerHeight * 0.96;
 
-const scaleWidth = canvas.width / 600;
-const scaleHeight = canvas.height / 980;
-ctx.scale(scaleWidth, scaleHeight);
+function adjustCanvasSize() {
+    if (window.innerWidth >= window.innerHeight) {
+        canvas.width = window.innerHeight * 0.96 * (600 / 980);
+        canvas.height = window.innerHeight * 0.96;
+    } else {
+        canvas.width = window.innerWidth * 0.96;
+        canvas.height = window.innerHeight * 0.96;
+    }
+
+    const scaleWidth = canvas.width / 600;
+    const scaleHeight = canvas.height / 980;
+    ctx.scale(scaleWidth, scaleHeight);
+}
+
+adjustCanvasSize();
+window.addEventListener('resize', adjustCanvasSize);
 
 const CARD_MOVE_SPEED = 20;
 let counter = 5;
