@@ -132,6 +132,7 @@ function addBackButtonToChapterIndex2() {
         document.querySelector('.chap2').classList.add('hidden');
         document.getElementById('chapter21').classList.add('hidden');
         document.getElementById('chapter22').classList.add('hidden');
+        document.getElementById('chapter23').classList.add('hidden');
         document.querySelector('.book-cover').classList.remove('hidden');
         document.querySelector('.book-info').classList.remove('hidden');
         document.querySelector('.book-cover2').classList.remove('hidden');
@@ -144,6 +145,7 @@ function addBackButtonToChapterIndex2() {
 
 addBackButtonToChapterContent2('chapter21');
 addBackButtonToChapterContent2('chapter22');
+addBackButtonToChapterContent2('chapter23');
 addBackButtonToChapterIndex2();
 
 document.querySelectorAll('#book2 ul li a').forEach(chapterLink => {
@@ -175,6 +177,7 @@ function loadChapterContent2(chapterId, filePath) {
 
 loadChapterContent2('#chapter1', 'blog.txt');
 loadChapterContent2('#chapter2', 'blog.txt');
+loadChapterContent2('#chapter3', 'blog.txt');
 
 function requestNotificationPermission() {
     // alert('1a');
