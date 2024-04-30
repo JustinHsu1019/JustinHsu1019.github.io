@@ -1,15 +1,22 @@
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
+let current_mode = "";
 
 function adjustCanvasSize() {
     if (window.innerWidth >= window.innerHeight) {
         canvas.width = window.innerHeight * 0.96 * (600 / 980);
         canvas.height = window.innerHeight * 0.96;
-        alert("歡迎進入遊戲！您現在是 PC 模式");
+        if (current_mode !== "PC") {
+            current_mode = "PC";
+            toastr.info('歡迎進入遊戲！您現在是 PC 模式');
+        }
     } else {
         canvas.width = window.innerWidth * 0.96;
         canvas.height = window.innerHeight * 0.96;
-        alert("歡迎進入遊戲！您現在是 PE 模式");
+        if (current_mode !== "PE") {
+            current_mode = "PE";
+            toastr.info('歡迎進入遊戲！您現在是 PE 模式');
+        }
     }
 }
 
