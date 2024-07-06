@@ -8,10 +8,3 @@
 
 ## My GitHub Profile:
 - https://github.com/JustinHsu1019
-
-## My Web APPs:
-- https://oj.justin-code.com
-- https://justin-code.com/WhiteBoard
-- https://justin-code.com/ClashRoyale
-- https://justin-code.com/Chat
-- https://justin-code.com/mimicstyler
