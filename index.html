@@ -21,7 +21,6 @@
             <ul>
                 <li><a href="#about-me">About Me</a></li>
                 <li><a href="#expertise">Areas of Expertise</a></li>
-                <li><a href="#experience" id="experience-tab">Project Experience</a></li>
                 <li><a href="#daily-novels">Novels & Blog</a></li>
                 <li><a href="#resume" id="resume-tab">Resume</a></li>
                 <li><a href="#login" id="login-link">Sign in</a></li>
@@ -72,46 +71,6 @@
                     <li>Design, Development, and Optimization of RAG Architectures</li>
                     <li>Continual Pretraining and Fine-Tuning (SFT) of Open-Source Models</li>
                     <li>Application and Deployment of Large Language Model Inference Acceleration</li>
-                </ol>
-            </section>
-
-            <section class="experience">
-                <h2>My Web APPs</h2>
-                <ol>
-                    <li>Tool: <a href="https://oj.justin-code.com" target="_blank">Online Judge</a>
-                        | <a href="https://github.com/JustinHsu1019/OnlineJudge" target="_blank">Source
-                            Code</a>
-                    </li>
-                    <li>Game: <a href="https://justin-code.com/ClashRoyale" target="_blank">Clash Royale</a>
-                        | <a href="https://github.com/JustinHsu1019/LLaMA-Clash-Royale" target="_blank">Source
-                            Code</a>
-                    </li>
-                    <li>Tool: <a href="https://justin-code.com/WhiteBoard" target="_blank">White Board</a> |
-                        <a href="https://github.com/JustinHsu1019/WhiteBoard" target="_blank">Source Code</a>
-                    </li>
-                    <li>Tool: <a href="https://justin-code.com/mimicstyler" target="_blank">Mimic
-                            Styler</a> | <a href="https://github.com/JustinHsu1019/mimicStyler-HTML-CSS-Edition"
-                            target="_blank">Source Code</a></li>
-                    <li>Tool: <a href="https://justin-code.com/Chat" target="_blank">Search Engine</a> | <a
-                            href="https://github.com/JustinHsu1019/Weaviate-SearchEngine" target="_blank">Source
-                            Code</a></li>
-                </ol>
-            </section>
-            <section class="experience">
-                <h2>Project Experience</h2>
-                <ol>
-                    <li>Taiwan Power: <a href="https://smartrobot.taipower.com.tw/Webhook/?eservice=TPCWEB"
-                            target="_blank">Intelligent Robot Optimization Project</a></li>
-                    <li>Academia Sinica: AI Deep Reinforcement Learning Go Research/Development</li>
-                    <li>L'Oréal (Assisting Outsourced Customer Service for L'Oréal): Product Recommendation System, AI
-                        Recording Quality Inspection System</li>
-                    <li>ChainSea: AI Trainer System, <a href="https://github.com/JustinHsu1019/LLaMA-Deploy-Train"
-                            target="_blank">LLaMA Training and Deployment Research</a>, Intelligent Q&A System for
-                        Customer Service Knowledge Base</li>
-                    <li><a href="https://www.aile.cloud/" target="_blank">Aile.Cloud</a>: Intelligent Integration Work
-                    </li>
-                    <li><a href="https://nccupass.com/" target="_blank">NCCUPass APP</a> (Leading the development of AI
-                        assistant AllPass)</li>
                 </ol>
             </section>
 
@@ -223,28 +182,6 @@
                     document.querySelectorAll('main > section').forEach(section => {
                         section.classList.add('hidden');
                     });
-
-                    if (this.getAttribute('href') === '#experience') {
-                        document.querySelectorAll('.experience').forEach(experienceSection => {
-                            experienceSection.classList.remove('hidden');
-                        });
-                    } else {
-                        document.querySelectorAll('.experience').forEach(experienceSection => {
-                            experienceSection.classList.add('hidden');
-                        });
-
-                        var targetSection = document.querySelector(this.getAttribute('href'));
-                        if (targetSection) {
-                            targetSection.classList.remove('hidden');
-                        }
-                    }
-                });
-            });
-
-            document.querySelector('#experience-tab').addEventListener('click', function (event) {
-                event.preventDefault();
-                document.querySelectorAll('.experience').forEach(function (element) {
-                    element.classList.remove('hidden');
                 });
             });
         });
