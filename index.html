@@ -182,6 +182,11 @@
                     document.querySelectorAll('main > section').forEach(section => {
                         section.classList.add('hidden');
                     });
+
+                    var targetSection = document.querySelector(this.getAttribute('href'));
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden');
+                    }
                 });
             });
         });
