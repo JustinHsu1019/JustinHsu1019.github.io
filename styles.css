@@ -350,3 +350,14 @@ section a:hover {
     height: 100%;
     border: 0;
 }
+
+.resume-preview {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.resume-preview iframe {
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
