@@ -152,6 +152,10 @@ section a:hover {
 }
 
 @media (max-width: 600px) {
+    .about-title {
+        flex-direction: column;
+    }
+
     header h1 {
         font-size: 2rem;
     }
