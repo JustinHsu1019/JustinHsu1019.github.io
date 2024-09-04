@@ -152,8 +152,8 @@ section a:hover {
 }
 
 @media (max-width: 600px) {
-    .about-title {
-        flex-direction: column;
+    .right-aligned-img {
+        display: none;
     }
 
     header h1 {
