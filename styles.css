@@ -155,10 +155,12 @@ section a:hover {
     .right-aligned-img {
         display: none;
     }
+    
     section p {
-        font-size: 0.95rem;
+        font-size: 1.0rem;
         margin-bottom: 15px;
     }
+    
     header h1 {
         font-size: 2rem;
     }
