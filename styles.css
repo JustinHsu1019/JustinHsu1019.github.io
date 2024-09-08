@@ -155,7 +155,10 @@ section a:hover {
     .right-aligned-img {
         display: none;
     }
-
+    section p {
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+    }
     header h1 {
         font-size: 2rem;
     }
