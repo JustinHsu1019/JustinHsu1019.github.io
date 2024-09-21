@@ -1,4 +1,4 @@
-const CACHE_NAME = 'justin-code';
+const CACHE_NAME = 'justni';
 const assetsToCache = [
     './',
     './index.html'
@@ -42,7 +42,7 @@ self.addEventListener('push', event => {
         data = event.data.json();
     }
 
-    const title = data.title || 'Justin Code 通知';
+    const title = data.title || 'JustNi 通知';
     const options = {
         body: data.body || '您有新的消息',
         icon: 'favicon.png',
