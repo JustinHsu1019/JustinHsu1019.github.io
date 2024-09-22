@@ -343,6 +343,8 @@ section a:hover {
 .small-text {
     font-size: 1.2rem;
     color: #666;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
 .responsive-iframe-container {
