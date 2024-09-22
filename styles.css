@@ -340,11 +340,22 @@ section a:hover {
     color: #5D93E1;
 }
 
+.small-text-1 {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
 .small-text {
     font-size: 1.2rem;
     color: #666;
+    margin: 0;
+}
+
+.small-text-2 {
+    font-size: 1.2rem;
+    color: #666;
     margin-top: 0;
-    margin-bottom: 0.5rem;
 }
 
 .responsive-iframe-container {
