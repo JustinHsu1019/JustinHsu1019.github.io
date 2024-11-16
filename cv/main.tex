@@ -1,0 +1,204 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{fancyhdr}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{multicol}
+\input{glyphtounicode}
+
+\usepackage[default]{sourcesanspro}
+\usepackage[T1]{fontenc}
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\centering
+}{}{0em}{}[\color{black}\titlerule\vspace{-5pt}]
+
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+
+
+\begin{center}
+    {\LARGE Hsin-Ling (Justin) Hsu} \\ \vspace{2pt}
+    \begin{multicols}{2}
+    \begin{flushleft}
+    \href{{https://github.com/justinHsu1019}}{github.com/justinHsu1019}\\
+    \href{{https://www.linkedin.com/in/justinhsu101999}}{linkedin.com/justinhsu101999}
+    \end{flushleft}
+
+    \begin{flushright}
+    \href{{https://justin-code.com}}{justin-code.com}\\
+    \href{mailto:justin.hsu.1019@gmail.com}{justin.hsu.1019@gmail.com}
+    \end{flushright}
+    \end{multicols}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\vspace{-2pt}
+\section{Education}
+  \resumeSubHeadingListStart
+      \resumeSubheading
+      {\href{https://mis2.nccu.edu.tw/en/Introduction/about1}{National Chengchi University}}{Sept. 2024 -- Present}
+      {Bachelor's in Management Information Systems}{Taipei, Taiwan}
+      \resumeItemListStart
+        \resumeItem{\href{https://nccupass.com/}{NCCUPass}, Head of AI}
+      \resumeItemListEnd
+
+      \resumeSubheading
+      {National Chengchi University}{Sept. 2023 -- Aug. 2024}
+      {Bachelor's in Mathematical Sciences (Transferred to MIS)}{Taipei, Taiwan}
+      \resumeItemListStart
+        \resumeItem{\href{https://developers.google.com/community/gdg}{Google GDG NCCU}, Lecturer and Core Member}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {AI Intern}{Sept. 2024 -- Present}
+      {\href{https://www.gofreight.com/company}{GoFreight}}{Taipei, Taiwan}
+      \resumeItemListStart
+        \resumeItem{Focused on computer vision (CV) recognition for logistics documents (e.g., Master Bill of Lading, Invoice), enhancing the accuracy and efficiency of automated document processing.}
+        \resumeItem{Developed AI-powered dynamic web parsing solutions to mitigate crawler disruptions caused by web changes, significantly reducing maintenance costs.}
+        \resumeItem{Technologies utilized: Python, LangFuse, AWS S3 \& Textract.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Research Assistant}{May 2024 -- Present}
+      {\href{https://www.iis.sinica.edu.tw/en/page/AboutUs/Introduction.html}{Institute of Information Science, Academia Sinica}}{Taipei, Taiwan}
+      \resumeItemListStart
+        \resumeItem{Advisor: \href{https://homepage.iis.sinica.edu.tw/pages/tirongwu/index_en.html}{Prof. Ti-Rong Wu}, \href{https://github.com/rlglab/}{Reinforcement Learning and Games Lab}.}
+         \resumeItem{Participated in a research project on General computer game solving based on Proof Cost Network (PCN).}
+        \resumeItem{Responsible for designing and developing both frontend and backend components of computer games using WGo.js, C/C++, Python.}
+        \resumeItem{Designed a high-performance database for managing large-scale game records and AI-analyzed board states, optimizing system architecture to ensure stability, scalability, and efficient data access, supporting a high-performance gaming environment.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Part-time Engineer}{Jul. 2023 -- Sept. 2024}
+      {\href{https://www.chainsea.com.tw/about/introduction/}{ChainSea Information Group}}{Taipei, Taiwan}
+      \resumeItemListStart
+        \resumeItem{Core R\&D Engineer for open-source LLM and Whisper projects at ChainSea, specializing in real-time transcription, inference acceleration, dataset generation and augmentation (e.g., Taipower project under Selected Projects), and model training.}
+        \resumeItem{Designed, developed, and optimized RAG architectures to improve knowledge base retrieval accuracy.}
+        \resumeItem{Conducted research and development in cutting-edge AI technologies, including the design and implementation of LLM Agent architectures for marketing workflows and a generic framework for topic management.}
+        \resumeItem{Technologies utilized: Python, SentenceTransformer, TensorFlow, PyTorch.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------RESEARCH & PROJECTS-----------
+\section{Research \& Projects}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {\href{https://github.com/JustinHsu1019/RAG_Search_Weights}{Exploration of Optimal Weight Configuration Between Keyword and Vector Search in RAG}}{2024 -- Present}
+      {Advisor: \href{https://math.nccu.edu.tw/PageStaffing/Detail?fid=4666\&id=1118}{Prof. Jengnan Tzeng}}{}
+      \resumeItemListStart
+        \resumeItem{Continue advancing the research with the advisor, with plans to write this research into a paper and submit it to a journal.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {\href{https://nccupass.com/}{NCCUPass APP}}{2024 -- Present}
+      {NCCUPass, Head of AI}{}
+      \resumeItemListStart
+        \resumeItem{Led the AI team in the R\&D of the \href{https://allpass.nccupass.com}{campus AI assistant AllPass.} As of September 2024, over 2,000 students at National Chengchi University have registered and used the platform, and the project has received multiple accolades in startup competitions.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {\href{https://github.com/JustinHsu1019/AICUP2024-RAG-LLM}{High-Accuracy RAG Retriever Template}}{2024}
+      {AI CUP 2024 E.SUN Artificial Intelligence Open Challenge}{}
+      \resumeItemListStart
+        \resumeItem{Won the 'Top Accuracy Nationwide Award' in the {\href{https://tbrain.trendmicro.com.tw/Competitions/Details/37}{AI CUP 2024 E.SUN Artificial Intelligence Open Challenge}}, ranking in the top 8\% nationwide for overall accuracy.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {\href{https://service.taipower.com.tw:4433/smartrobot}{Taiwan Power Intelligent Robot Optimization Project}}{2023}
+      {ChainSea Information Group}{}
+      \resumeItemListStart
+        \resumeItem{Participated in and completed the optimization of training data for Taiwan Power's official website intelligent AI customer service system "Dianbao" during my tenure at ChainSea.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\section{Awards}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {2nd Place in \href{https://iaic.nccu.edu.tw/contests/ai-1984-2024}{AI Cross-Domain Innovation Competition}}
+      {2024}
+      {Project Lead: AI \& Backend Development. {\href{https://news.tvbs.com.tw/life/2661071?openExternalBrowser=1}{News Article}} | {\href{https://drive.google.com/file/d/1aeFkFxJUJnZKDjO7yRTyjoOqu4eria_h/view?usp=sharing}{Certificate}}}{}
+    \resumeSubheading
+      {\textbf{Top 20 in \href{https://ht-hackathon.tw/tw/}{HOTAI MaaS Hackathon}}} 
+      {2024 -- Present} 
+      {Led system architecture design, full-stack development, UI/UX development}{\textit{(Semi-final ongoing)}}
+    \resumeSubheading
+      {\textbf{Top 30 in \href{https://tw-linefresh.landpress.line.me/}{LINE FRESH Campus Competition}}} 
+      {2024 -- Present} 
+      {Led system architecture and backend development}{\textit{(Semi-final ongoing)}}
+  \resumeSubHeadingListEnd
+
+\end{document}
