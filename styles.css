@@ -131,8 +131,14 @@ section a:hover {
 .right-aligned-img {
     float: right;
     margin-left: 20px;
-    width: 300px;
+    width: 250px;
     height: auto;
+}
+
+.right-aligned-img img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .about-title {
@@ -155,12 +161,12 @@ section a:hover {
     .right-aligned-img {
         display: none;
     }
-    
+
     section p {
         font-size: 1.0rem;
         margin-bottom: 15px;
     }
-    
+
     header h1 {
         font-size: 2rem;
     }
