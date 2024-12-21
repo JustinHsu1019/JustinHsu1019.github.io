@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用者每日健康狀況</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            text-align: center;
+            color: #001476;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #5a9bd4;
+        }
+    </style>
+</head>
+<body>
+    <h1>使用者每日健康狀況</h1>
+    <div class="button-container">
+        <button onclick="window.location.href='daily_health_status_1.html'">2024/12/17</button>
+        <button onclick="window.location.href='daily_health_status_2.html'">2024/12/18</button>
+        <button onclick="window.location.href='daily_health_status_3.html'">2024/12/19</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>失智症病情追蹤表單</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 20px;
+      background-color: #f0f8ff;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input,
+    select,
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      display: none;
+      /* 隱藏預設方框 */
+    }
+
+    .checkbox-group label {
+      position: relative;
+      padding-left: 30px;
+      /* 空間留給自定義的方框 */
+      cursor: pointer;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .checkbox-group label::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      /* 圓角方框 */
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .checkbox-group input[type="checkbox"]:checked+label::before {
+      background-color: #4CAF50;
+      /* 勾選時背景顏色 */
+      border-color: #4CAF50;
+    }
+
+    .checkbox-group input[type="checkbox"]:checked+label::after {
+      content: "\2713";
+      /* Unicode 打勾符號 */
+      position: absolute;
+      left: 5px;
+      top: 0;
+      font-size: 18px;
+      color: #fff;
+      /* 勾選符號顏色 */
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>失智症病情追蹤表單</h1>
+    <form id="dementia-form">
+      <!-- 基本資訊 -->
+      <div class="form-group">
+        <label for="patient-name">長者姓名</label>
+        <input type="text" id="patient-name" name="patientName" placeholder="請輸入長者姓名" required>
+      </div>
+      <div class="form-group">
+        <label for="caregiver-name">照護者姓名</label>
+        <input type="text" id="caregiver-name" name="caregiverName" placeholder="請輸入照護者姓名" required>
+      </div>
+
+      <label>藥物過敏史</label>
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="allergy-none" name="drugAllergy" value="無">
+        <label for="allergy-none">無</label>
+        <input type="checkbox" id="allergy-unknown" name="drugAllergy" value="不知">
+        <label for="allergy-unknown">不知</label>
+        <input type="checkbox" id="allergy-pain" name="drugAllergy" value="消炎止痛藥">
+        <label for="allergy-pain">消炎止痛藥</label>
+        <input type="checkbox" id="allergy-aspirin" name="drugAllergy" value="阿斯匹林">
+        <label for="allergy-aspirin">阿斯匹林</label>
+        <input type="checkbox" id="allergy-sulfa" name="drugAllergy" value="磺胺類">
+        <label for="allergy-sulfa">磺胺類</label>
+        <input type="checkbox" id="allergy-other" name="drugAllergy" value="其他">
+        <label for="allergy-other">其他</label>
+      </div>
+
+      <label>過去病史</label>
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="history-none" name="pastHistory" value="無">
+        <label for="history-none">無</label>
+        <input type="checkbox" id="history-hypertension" name="pastHistory" value="高血壓">
+        <label for="history-hypertension">高血壓</label>
+        <input type="checkbox" id="history-diabetes" name="pastHistory" value="糖尿病">
+        <label for="history-diabetes">糖尿病</label>
+        <input type="checkbox" id="history-hyperlipidemia" name="pastHistory" value="高血脂症">
+        <label for="history-hyperlipidemia">高血脂症</label>
+        <input type="checkbox" id="history-gout" name="pastHistory" value="痛風">
+        <label for="history-gout">痛風</label>
+        <input type="checkbox" id="history-nephropathy" name="pastHistory" value="腎臟病">
+        <label for="history-nephropathy">腎臟病</label>
+        <input type="checkbox" id="history-chronic-pulmonary" name="pastHistory" value="慢性肺病">
+        <label for="history-chronic-pulmonary">慢性肺病</label>
+        <input type="checkbox" id="history-thyroid" name="pastHistory" value="甲狀腺腫">
+        <label for="history-thyroid">甲狀腺腫</label>
+        <input type="checkbox" id="history-b-hepatitis" name="pastHistory" value="B型肝炎">
+        <label for="history-b-hepatitis">B型肝炎</label>
+        <input type="checkbox" id="history-c-hepatitis" name="pastHistory" value="C型肝炎">
+        <label for="history-c-hepatitis">C型肝炎</label>
+        <input type="checkbox" id="history-heart-disease" name="pastHistory" value="心血管疾病">
+        <label for="history-heart-disease">心血管疾病</label>
+        <input type="checkbox" id="history-gastric-ulcer" name="pastHistory" value="消化性潰瘍">
+        <label for="history-gastric-ulcer">消化性潰瘍</label>
+        <input type="checkbox" id="history-prostate" name="pastHistory" value="攝護腺肥大">
+        <label for="history-prostate">攝護腺肥大</label>
+        <input type="checkbox" id="history-stroke" name="pastHistory" value="中風">
+        <label for="history-stroke">中風</label>
+        <input type="checkbox" id="history-asthma" name="pastHistory" value="氣喘">
+        <label for="history-asthma">氣喘</label>
+        <input type="checkbox" id="history-other" name="pastHistory" value="其他">
+        <label for="history-other">其他</label>
+      </div>
+
+      <label>不良習慣</label>
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="habit-none" name="habit" value="無">
+        <label for="habit-none">無</label>
+        <input type="checkbox" id="habit-smoking" name="habit" value="吸菸">
+        <label for="habit-smoking">吸菸</label>
+        <input type="checkbox" id="habit-drinking" name="habit" value="喝酒">
+        <label for="habit-drinking">喝酒</label>
+        <input type="checkbox" id="habit-betel" name="habit" value="嚼檳榔">
+        <label for="habit-betel">嚼檳榔</label>
+      </div>
+
+      <div class="form-group">
+        <label for="activity-level">活動量 (過去7天)</label>
+        <select id="activity-level" name="activityLevel" required>
+          <option value="">請選擇活動量</option>
+          <option value="高">單週一次</option>
+          <option value="中">雙週一次</option>
+          <option value="低">每月一次</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="appointment-day">每週固定回診時間</label>
+        <select id="appointment-day" name="appointmentDay" required>
+          <option value="">請選擇回診日</option>
+          <option value="星期一">星期一</option>
+          <option value="星期二">星期二</option>
+          <option value="星期三">星期三</option>
+          <option value="星期四">星期四</option>
+          <option value="星期五">星期五</option>
+          <option value="星期六">星期六</option>
+          <option value="星期日">星期日</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="appointment-frequency">回診頻率</label>
+        <select id="appointment-frequency" name="appointmentFrequency" required>
+          <option value="">請選擇回診頻率</option>
+          <option value="單週一次">單週一次</option>
+          <option value="雙週一次">雙週一次</option>
+          <option value="每月一次">每月一次</option>
+        </select>
+      </div>
+
+      <button type="submit">送出</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById("dementia-form").onsubmit = function (event) {
+      event.preventDefault();
+      const randomHash = Math.random().toString(36).substring(2, 14);
+      document.body.innerHTML = `
+        <div class="container">
+          <h1>完成</h1>
+          <p class="success-message">已完成，開始排程定期生成客製化提醒 🔔</p>
+          <p>您的密碼：${randomHash}</p>
+          <button onclick="location.href='index.html'" class="back-button">返回失智症病情追蹤</button>
+        </div>
+      `;
+    };
+  </script>
+</body>
+
+</html>

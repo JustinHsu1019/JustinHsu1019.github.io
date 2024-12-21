@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查看每日健康狀況</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            color: #001476;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #5a9bd4;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            const caregiverName = document.getElementById('caregiverName').value;
+            const password = document.getElementById('password').value;
+            if (!caregiverName || password.length < 8) {
+                alert('請輸入正確的姓名和密碼！');
+                return false;
+            }
+            location.href = 'user_health_status.html';
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h1>查看每日健康狀況</h1>
+        <form onsubmit="event.preventDefault(); validateForm();">
+            <label for="caregiverName">照護者姓名</label>
+            <input type="text" id="caregiverName" placeholder="請輸入姓名" required>
+
+            <label for="password">密碼</label>
+            <input type="text" id="password" placeholder="請輸入密碼" required>
+
+            <button type="submit">送出</button>
+        </form>
+    </div>
+</body>
+</html>
