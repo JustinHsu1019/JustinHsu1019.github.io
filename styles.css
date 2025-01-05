@@ -389,3 +389,7 @@ section a:hover {
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.small-des, .small-des * {
+    font-size: 0.95em;
+}
