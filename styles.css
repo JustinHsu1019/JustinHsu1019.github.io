@@ -158,6 +158,7 @@ section a:hover {
 }
 
 @media (max-width: 600px) {
+    #github-trophy,
     .right-aligned-img {
         display: none;
     }
