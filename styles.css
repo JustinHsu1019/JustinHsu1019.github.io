@@ -323,48 +323,6 @@ section a:hover {
     margin-bottom: 0;
 }
 
-.announcement {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 0 10px;
-    background-color: #f2f2f2;
-    margin: 10px 0;
-    border-radius: 8px;
-}
-
-.announcement a {
-    color: #333;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-size: 1.7rem;
-    margin-bottom: -22px;
-}
-
-.announcement a:hover {
-    color: #5D93E1;
-}
-
-.small-text-1 {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 0;
-}
-
-.small-text {
-    font-size: 1.2rem;
-    color: #666;
-    margin: 0;
-}
-
-.small-text-2 {
-    font-size: 1.2rem;
-    color: #666;
-    margin-top: 0;
-}
-
 .responsive-iframe-container {
     position: relative;
     overflow: hidden;
