@@ -228,8 +228,8 @@ section a:hover {
     text-decoration: underline;
 }
 
-#daily-novels h2,
-#daily-novels h3,
+#publication h2,
+#publication h3,
 #book1 article h4,
 #book2 article h4 {
     color: #333;

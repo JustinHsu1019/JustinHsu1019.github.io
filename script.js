@@ -1,9 +1,9 @@
 document.getElementById('site-title').addEventListener('click', function () {
     document.getElementById('resume').classList.add('hidden');
-    document.getElementById('daily-novels').classList.add('hidden');
+    document.getElementById('publication').classList.add('hidden');
 
     document.querySelectorAll('main > section').forEach(section => {
-        if (section.id !== 'resume' && section.id !== 'daily-novels') {
+        if (section.id !== 'resume' && section.id !== 'publication') {
             section.classList.remove('hidden');
         }
     });
