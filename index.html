@@ -36,9 +36,9 @@
             <ul>
                 <li><a href="#about-me">About Me</a></li>
                 <li><a href="#expertise">Research Interests</a></li>
-                <li><a href="#publication">Publications</a></li>
+                <li><a href="#publication" style="display:none;">Publications</a></li>
                 <li><a href="#resume" id="resume-tab">Resume</a></li>
-                <li><a href="#login" id="login-link">Sign in</a></li>
+                <li><a href="#login" id="login-link" style="display:none;">Sign in</a></li>
             </ul>
         </nav>
 
@@ -61,7 +61,7 @@
                 </div>
                 <div id="about-content" class="small-des">
                     <p>
-                        <strong>Hsin-Ling (Justin) Hsu</strong> (Chinese: 許新翎, born October 19, 2004), is an AI student researcher and R&D engineer with over 2 years of industry and research experience specializing in software engineering and artificial intelligence, particularly in Information Retrieval, AI for Healthcare, Large Language Models, and Natural Language Processing.
+                        <strong>Hsin-Ling (Justin) Hsu</strong> (Chinese: 許新翎, born October 19, 2004), is an AI student researcher and R&D engineer with over 2 years of industry and research experience specializing in software engineering and artificial intelligence, particularly in Natural Language Processing, AI for Healthcare, Information Retrieval, and GenAI.
                         He is currently a research assistant at the
                         <a href="https://www.iis.sinica.edu.tw/en/page/AboutUs/Introduction.html"
                             target="_blank">Academia Sinica</a>'s
@@ -82,7 +82,7 @@
                         <a href="https://nccupass.com" target="_blank">NCCUPass APP</a> (led the AI team in product
                         development, with over 2,000 NCCU students registered and achieved outstanding results in
                         multiple startup competitions). Additionally, he has published several academic papers as the
-                        first author, including <a href="https://arxiv.org/pdf/2503.17900" target="_blank">"MedPlan: A
+                        first author, including "(ACL 2025 Ind.) <a href="https://arxiv.org/pdf/2503.17900" target="_blank">MedPlan: A
                             Two-Stage RAG-Based System for Personalized Medical Plan Generation"</a>, <a
                             href="https://arxiv.org/pdf/2503.23013" target="_blank">"DAT: Dynamic Alpha Tuning for
                             Hybrid Retrieval in Retrieval-Augmented Generation"</a>, and <a
@@ -113,10 +113,10 @@
             <section id="expertise">
                 <h2>Research Interests</h2>
                 <ul>
-                    <li>Information Retrieval</li>
                     <li>Natural Language Processing</li>
                     <li>AI for Healthcare</li>
-                    <li>Trustworthy AI</li>
+                    <li>Information Retrieval</li>
+                    <li>Generative AI</li>
                 </ul>
             </section>
 
@@ -216,7 +216,7 @@
 
         const englishContent = `
             <p>
-                <strong>Hsin-Ling (Justin) Hsu</strong> (Chinese: 許新翎, born October 19, 2004), is an AI student researcher and R&D engineer with over 2 years of industry and research experience specializing in software engineering and artificial intelligence, particularly in Information Retrieval, AI for Healthcare, Large Language Models, and Natural Language Processing.
+                <strong>Hsin-Ling (Justin) Hsu</strong> (Chinese: 許新翎, born October 19, 2004), is an AI student researcher and R&D engineer with over 2 years of industry and research experience specializing in software engineering and artificial intelligence, particularly in Natural Language Processing, AI for Healthcare, Information Retrieval, and GenAI.
                 He is currently a research assistant at the 
                 <a href="https://www.iis.sinica.edu.tw/en/page/AboutUs/Introduction.html" target="_blank">Academia Sinica</a>'s 
                 Reinforcement Learning Lab, an AI team research assistant at the 
@@ -227,7 +227,7 @@
                 Previously, he was a part-time AI engineer at the 
                 <a href="https://www.chainsea.com.tw/about/introduction/" target="_blank">ChainSea Information Group</a>.
             </p>
-            <p>Justin has participated in various project developments, including the <a href="https://service.taipower.com.tw:4433/smartrobot/" target="_blank">Taiwan Power AI Chatbot Optimization Project</a> (optimizing training data for the chatbot "Dian Bao") and <a href="https://nccupass.com" target="_blank">NCCUPass APP</a> (led the AI team in product development, with over 2,000 NCCU students registered and achieved outstanding results in multiple startup competitions). Additionally, he has published several academic papers as the first author, including <a href="https://arxiv.org/pdf/2503.17900" target="_blank">"MedPlan: A Two-Stage RAG-Based System for Personalized Medical Plan Generation"</a>, <a href="https://arxiv.org/pdf/2503.23013" target="_blank">"DAT: Dynamic Alpha Tuning for Hybrid Retrieval in Retrieval-Augmented Generation"</a>, and <a href="https://arxiv.org/pdf/2503.08452" target="_blank">"KAP: MLLM-assisted OCR Text Enhancement for Hybrid Retrieval in Chinese Non-Narrative Documents"</a>.</p>
+            <p>Justin has participated in various project developments, including the <a href="https://service.taipower.com.tw:4433/smartrobot/" target="_blank">Taiwan Power AI Chatbot Optimization Project</a> (optimizing training data for the chatbot "Dian Bao") and <a href="https://nccupass.com" target="_blank">NCCUPass APP</a> (led the AI team in product development, with over 2,000 NCCU students registered and achieved outstanding results in multiple startup competitions). Additionally, he has published several academic papers as the first author, including "(ACL 2025 Ind.) <a href="https://arxiv.org/pdf/2503.17900" target="_blank">MedPlan: A Two-Stage RAG-Based System for Personalized Medical Plan Generation"</a>, <a href="https://arxiv.org/pdf/2503.23013" target="_blank">"DAT: Dynamic Alpha Tuning for Hybrid Retrieval in Retrieval-Augmented Generation"</a>, and <a href="https://arxiv.org/pdf/2503.08452" target="_blank">"KAP: MLLM-assisted OCR Text Enhancement for Hybrid Retrieval in Chinese Non-Narrative Documents"</a>.</p>
             <p>
                 In December 2024, Justin's team won second place nationwide [2/233 teams; ~0.8%] in the 
                 <a href="https://tw.news.yahoo.com/2024%E5%92%8C%E6%B3%B0maas%E9%BB%91%E5%AE%A2%E6%9D%BE-%E7%AB%B6%E8%B3%BD%E7%B5%90%E6%9E%9C%E6%8F%AD%E6%9B%89-084102303.html" target="_blank">
@@ -250,7 +250,7 @@
                 <a href="https://www.chainsea.com.tw/about/introduction/" target="_blank">程曦資訊集團</a>
                 兼職 AI 工程師。
             </p>
-            <p>過去曾參與多項專案研發，包括 <a href="https://service.taipower.com.tw:4433/smartrobot/" target="_blank">台電智能機器人優化案</a>（台電官網智能客服「電寶」訓練資料優化案）、<a href="https://nccupass.com" target="_blank">政大通 APP</a>（領導人工智慧團隊之產品研發，已有逾 2000 位政大學生註冊使用，並在多次新創競賽中榮獲佳績）。同時，作為第一作者發表多篇學術論文，包括<a href="https://arxiv.org/pdf/2503.17900" target="_blank">《MedPlan: A Two-Stage RAG-Based System for Personalized Medical Plan Generation》</a>、<a href="https://arxiv.org/pdf/2503.23013" target="_blank">《DAT: Dynamic Alpha Tuning for Hybrid Retrieval in Retrieval-Augmented Generation》</a>以及<a href="https://arxiv.org/pdf/2503.08452" target="_blank">《KAP: MLLM-assisted OCR Text Enhancement for Hybrid Retrieval in Chinese Non-Narrative Documents》</a>。</p>
+            <p>過去曾參與多項專案研發，包括 <a href="https://service.taipower.com.tw:4433/smartrobot/" target="_blank">台電智能機器人優化案</a>（台電官網智能客服「電寶」訓練資料優化案）、<a href="https://nccupass.com" target="_blank">政大通 APP</a>（領導人工智慧團隊之產品研發，已有逾 2000 位政大學生註冊使用，並在多次新創競賽中榮獲佳績）。同時，作為第一作者發表多篇學術論文，包括<a href="https://arxiv.org/pdf/2503.17900" target="_blank">《MedPlan: A Two-Stage RAG-Based System for Personalized Medical Plan Generation》</a>(ACL 2025 Ind.)、<a href="https://arxiv.org/pdf/2503.23013" target="_blank">《DAT: Dynamic Alpha Tuning for Hybrid Retrieval in Retrieval-Augmented Generation》</a>以及<a href="https://arxiv.org/pdf/2503.08452" target="_blank">《KAP: MLLM-assisted OCR Text Enhancement for Hybrid Retrieval in Chinese Non-Narrative Documents》</a>。</p>
             <p>
                 2024年12月，以結合社群平台與智能行程健檢的解決方案榮獲和泰與微軟共同舉辦之 
                 <a href="https://tw.news.yahoo.com/2024%E5%92%8C%E6%B3%B0maas%E9%BB%91%E5%AE%A2%E6%9D%BE-%E7%AB%B6%E8%B3%BD%E7%B5%90%E6%9E%9C%E6%8F%AD%E6%9B%89-084102303.html" target="_blank">
