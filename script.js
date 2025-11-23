@@ -260,9 +260,9 @@ function urlBase64ToUint8Array(base64String) {
     return outputArray;
 }
 
-window.addEventListener('beforeunload', function (event) {
-    sendLeaveNotification();
-});
+// window.addEventListener('beforeunload', function (event) {
+//     sendLeaveNotification();
+// });
 
 function sendLeaveNotification() {
     fetch('https://justincode.pythonanywhere.com/notify-leave', {
@@ -288,8 +288,8 @@ function sendLeaveNotification() {
         });
 }
 
-function initApp() {
-    requestNotificationPermission();
-}
+// function initApp() {
+//     requestNotificationPermission();
+// }
 
-initApp();
+// initApp();
