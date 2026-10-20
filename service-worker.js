@@ -1,55 +1,16 @@
-const CACHE_NAME = 'justni';
-const assetsToCache = [
-    './',
-    './index.html'
-];
+// The old site registered this service worker to cache pages and receive push
+// notifications. The new site no longer needs it. Browsers that still have the
+// old worker installed will fetch this file, clear the cache, and unregister,
+// so returning visitors always see the latest version of the site.
 
-self.addEventListener('install', (event) => {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                return cache.addAll(assetsToCache);
-            })
-    );
-});
+self.addEventListener('install', () => self.skipWaiting());
 
 self.addEventListener('activate', (event) => {
     event.waitUntil(
-        caches.keys().then((cacheNames) => {
-            return Promise.all(
-                cacheNames.map((cacheName) => {
-                    if (cacheName !== CACHE_NAME) {
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
-        })
-    );
-});
-
-self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        fetch(event.request).catch(() => {
-            return caches.match(event.request);
-        })
-    );
-});
-
-self.addEventListener('push', event => {
-    let data = {};
-
-    if (event.data) {
-        data = event.data.json();
-    }
-
-    const title = data.title || 'JustNi 通知';
-    const options = {
-        body: data.body || '您有新的消息',
-        icon: 'favicon.png',
-        badge: 'favicon.png'
-    };
-
-    event.waitUntil(
-        self.registration.showNotification(title, options)
+        caches.keys()
+            .then((names) => Promise.all(names.map((name) => caches.delete(name))))
+            .then(() => self.registration.unregister())
+            .then(() => self.clients.matchAll())
+            .then((clients) => clients.forEach((client) => client.navigate(client.url)))
     );
 });

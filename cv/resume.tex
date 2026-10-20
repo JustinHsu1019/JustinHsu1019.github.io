@@ -1,0 +1,211 @@
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.35in,top=0.4in,right=0.35in,bottom=0.4in]{geometry} % Document margins
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\definecolor{linkblue}{RGB}{20,60,200}
+\newcommand{\lnk}[2]{\href{#1}{\textcolor{linkblue}{[#2]}}} % blue [paper link] style
+\input{glyphtounicode}
+\pdfgentounicode=1
+\def\sectionskip{\smallskip}\def\sectionlineskip{\smallskip}
+
+
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+
+% Entry without bullet points (bold title + date / italic subtitle + location)
+\newcommand{\rEntry}[4]{%
+  {\bf #1} \hfill {#2} \\
+  {\em #3} \hfill {\em #4}\par}
+
+\name{Hsin-Ling (Justin) Hsu} % Your name
+\address{\href{mailto:justin.hsu.1019@gmail.com}{\underline{justin.hsu.1019@gmail.com}} \\ \href{https://justin-code.com}{\underline{justin-code.com}} \\ X: \href{https://x.com/JustinHsu99}{\underline{JustinHsu99}}}
+\address{Google Scholar: \href{https://scholar.google.com/citations?user=pCXJM5AAAAAJ}{\underline{Hsin-Ling Hsu}} \\ GitHub: \href{https://github.com/justinHsu1019}{\underline{JustinHsu1019}} \\ LinkedIn: \href{https://www.linkedin.com/in/justinhsu101999}{\underline{justinhsu101999}}}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+\begin{rSubsection}{National Chengchi University (NCCU)}{Sep. 2023 -- Expected Graduation: Jun. 2027}{B.S. Double Major in MIS and Computer Science}{Taipei, Taiwan}
+  \item GPA: 4.11 / 4.30 (3.94 / 4.00) since transfer | Beta Gamma Sigma Honor Society (Top 10\% of department).
+  \item Transferred from NCCU Department of Mathematical Sciences after freshman year.
+\end{rSubsection}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	RESEARCH INTERESTS
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Research Interests}
+Trustworthy foundation models (LLMs and VLMs) for high-stakes real-world applications such as healthcare and autonomous driving, spanning hallucination, interpretability, and verifiable model repair.
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Publications}
+
+\href{https://scholar.google.com/citations?user=pCXJM5AAAAAJ}{Total citations: 82; h-index: 3; i10-index: 2} (Oct 2026).
+\hspace{0.1cm}* Equal contribution. \textsuperscript{\dag} Co-senior author.
+
+% \textbf{Published / Accepted}
+
+[1] \textbf{Hsin-Ling Hsu}, Zizheng Wang*, Donghua Zhang*, ..., Chenwei Wu\textsuperscript{\dag}, Liyue Shen\textsuperscript{\dag}, ``MedAction: Towards Active Multi-turn Clinical Diagnostic LLMs.''
+\textit{Third Conference on Language Modeling (\textbf{COLM} 2026)}, San Francisco, USA, 2026. $\sim$29\% acceptance rate.
+\hspace{0.1cm}\lnk{https://openreview.net/forum?id=2ZtsUgwVbx}{paper link}
+\hspace{0.1cm}\lnk{https://github.com/JustinHsu1019/MedAction}{code/data link}
+
+[2] \textbf{Hsin-Ling Hsu*}, Cong-Tinh Dao*, Luning Wang, Zitao Shuai, ..., Fang-Ming Hung, Chenwei Wu, ``MedPlan: A Two-Stage RAG-Based System for Personalized Medical Plan Generation.''
+\textit{Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (\textbf{ACL} 2025): Industry Track}, Vienna, Austria, 2025. $\sim$25.6\% acceptance rate. 30+ citations.
+\hspace{0.1cm}\lnk{https://aclanthology.org/2025.acl-industry.76.pdf}{paper link}
+
+[3] Chia-Hsuan Hsu*, Jun-En Ding*, \textbf{Hsin-Ling Hsu}, ..., Fang-Ming Hung, ``RGPO: Ranking-Guided Preference Optimization for Reliable Clinical Reasoning.''
+\textit{IEEE Transactions on Artificial Intelligence (\textbf{IEEE TAI}, Q1 Journal)}, 2026.\hspace{0.1cm}\lnk{https://ieeexplore.ieee.org/document/11495200}{paper link}
+
+[4] \textbf{Hsin-Ling Hsu}, Ping-Sheng Lin, Jing-Di Lin, Jengnan Tzeng, ``KAP: MLLM-assisted OCR Text Enhancement for Hybrid Retrieval in Chinese Non-Narrative Documents.''
+\textit{Proceedings of the FinTech in AI CUP Special Session, 18th \textbf{NTCIR} Conference}, Tokyo, Japan, 2025. \hspace{0.1cm}\lnk{https://research.nii.ac.jp/ntcir/workshop/OnlineProceedings18/pdf/ai_cup/01-AICUP-AICUP-HsuH.pdf}{paper link}
+\hspace{0.1cm}\lnk{https://github.com/JustinHsu1019/KAP}{code link} \\
+Notes: Oral presentation; travel grant from Taiwan's Ministry of Education (\$2,500 USD); National Excellence Prize, AI CUP 2024.
+
+% [5] Jerry Wang, \textbf{Hsin-Ling Hsu}, et al., ``Gradient-Free Adversarial Prompt Injection on RAG via Differential Evolution.''
+% \textit{International Conference on Software Quality, Reliability, and Security (\textbf{QRS} 2026)}, Short Paper, Florence, Italy, 2026.
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	MANUSCRIPTS
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Manuscripts}
+
+[5] \textbf{Hsin-Ling Hsu*}, Neeraja Kirtane*, Kuan-Hao Huang, ``Not Every Mention Is a Claim: Rethinking Object Hallucination Detection in Vision-Language Models.''
+\underline{Under review at} \textit{ARR October 2026} (targeting NAACL 2027). \hspace{0.1cm}\lnk{https://arxiv.org/pdf/2610.23610}{paper link} \hspace{0.1cm}\lnk{https://github.com/lab-flair/NAME_Bench}{data link}
+
+[6] \textbf{Hsin-Ling Hsu}, Min-Yu Chen, Nai-Chia Chen, Yan-Ru Chen, Yi-Ling Chang, Fang Yu, ``WARP: Guaranteed Inner-Layer Repair of NLP Transformers.''
+\textit{arXiv preprint}, 2026. \hspace{0.1cm}\lnk{https://arxiv.org/pdf/2604.00938}{paper link}
+\hspace{0.1cm}\lnk{https://github.com/sostrustfix/WARP}{code link}
+
+[7] \textbf{Hsin-Ling Hsu}, Min-Yu Chen, Nai-Chia Chen, Yan-Ru Chen, Yi-Ling Chang, Fang Yu, ``FORGE: Verification-Gated Behavioral Repair for Generative Language Models.''
+\underline{Under review at} \textit{ICSE 2027}. \hspace{0.1cm}\lnk{https://arxiv.org/pdf/2610.05190}{paper link}
+\hspace{0.1cm}\lnk{https://github.com/sostrustfix/FORGE}{code link}
+
+[8] \textbf{Hsin-Ling Hsu}, ..., Shi-Sheng Sun, ``Reasoning Like an LLM, Running Like an LSTM: Concept Graph Distillation for Explainable Vehicle Trajectory Prediction.''
+In preparation.
+
+% [10] \textbf{Hsin-Ling Hsu} and Jengnan Tzeng, ``DAT: Dynamic Alpha Tuning for Hybrid Retrieval in Retrieval-Augmented Generation.''
+%     arXiv, 2025. \hspace{0.1cm}\lnk{https://arxiv.org/pdf/2503.23013}{paper} \\
+% Notes: 20+ citations.
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	PATENTS
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Patents}
+\textbf{Hsin-Ling Hsu}, Jun-En Ding, Fang-Ming Hung, ``Electronic Device for Generating Personalized Assessment Content and Treatment Plan.''
+Taiwan Utility Model Patent No.~M682510, granted May 2026. Assignee: Far Eastern Memorial Hospital. \hspace{0.1cm}\lnk{https://patents.google.com/patent/TWM682510U/en}{patent link}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	RESEARCH EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Research Experience}
+
+\begin{rSubsection}{Research Collaborator}{Feb. 2026 -- Present}{\href{https://liyueshen.engin.umich.edu/}{BioMed-AI Lab, ECE/EECS, University of Michigan} (Advisor: Prof. Liyue Shen)}{Remote}
+  \item Led \textbf{MedAction} [1] (COLM 2026): built a tree-structured distillation pipeline with two KG-grounded consistency metrics to synthesize \textbf{MedAction-32K} (32,681 multi-turn diagnostic trajectories from 2,896 PMC cases); the fine-tuned 8B model achieves SOTA among open-source models on MedRBench.
+  \item Extending it into \textbf{MedAction-RL}, an SFT + RL recipe for active diagnostic agents that order tests, interpret results, and decide when to stop.
+\end{rSubsection}
+
+\begin{rSubsection}{Research Intern}{Nov. 2025 -- Present}{\href{https://khhuang.me}{FLAIR Lab, CSE, Texas A\&M University} (Advisor: Prof. Kuan-Hao Huang)}{Remote}
+  \item Research on object hallucination in VLMs from a semantic perspective. Built \textbf{NAME-Bench} [5], a 25K-mention benchmark distinguishing asserted from non-assertive object mentions (e.g., negation, hedging, purpose clauses), and showed that current hallucination detectors conflate mentioning an object with asserting its existence. Also studying cross-modal representations in VLMs via sparse autoencoders.
+\end{rSubsection}
+
+\begin{rSubsection}{Research Assistant}{Dec. 2024 -- Present}{\href{https://www.femh.org.tw/mainpage_en/Introduction.aspx}{Far Eastern Memorial Hospital} (Advisor: Dr. Fang-Ming Hung)}{New Taipei, Taiwan}
+  \item Designed \textbf{MedPlan} [2] (ACL 2025 Industry Track), a SOAP-aligned two-stage RAG system that generates a clinical assessment and then a patient-specific treatment plan, built on the hospital's extensive real-world EHR data in SOAP format; deployed at the hospital and validated by attending physicians on real patient records (90\%+ ICD-10 prediction accuracy).
+  \item Led to a Taiwan utility model patent, the National Innovation Award, and MOUs with clinics and HIS vendors; currently integrating the system with HL7 FHIR for interoperability with hospital information systems.
+\end{rSubsection}
+
+\begin{rSubsection}{Undergraduate Capstone Research}{Sep. 2025 -- Present}{Departments of MIS and Computer Science, National Chengchi University}{Taipei, Taiwan}
+  \item \textbf{MIS capstone} (Advisor: Prof. Fang Yu): Proposed \textbf{WARP} [6], a provable repair framework for Transformer NLP models beyond the final layer, posed as a convex QP with margin, preservation, and certified-robustness guarantees; extended it to generative LLMs as \textbf{FORGE} [7], which reduces bias and toxicity with minimal perplexity cost and stays stable in low-resource settings where fine-tuning fails. Funded by an \textbf{NSTC Undergraduate Research Grant}.
+  \item \textbf{CS capstone} (Advisor: Prof. Shi-Sheng Sun): Distilling the structure of LLM chain-of-thought into a 69K-parameter concept-graph model for explainable vehicle trajectory prediction [8]; matches the strongest baseline with 4.6$\times$ fewer parameters, runs $\sim$1000$\times$ faster than the LLM (0.26 ms/sample), and supports concept-level intervention.
+\end{rSubsection}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	INDUSTRY EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+% \begin{rSection}{Industry Experience}
+
+% \begin{rSubsection}{Engineer (Part-Time)}{May 2024 -- July 2026}{\href{https://tirongwu-5d.github.io/}{RLG Lab, IIS, Academia Sinica} (Advisor: Prof. Ti-Rong Wu)}{Taipei, Taiwan}
+%   \item Reinforcement learning infrastructure: game environments and AI solution tree visualization.
+% \end{rSubsection}
+
+% \begin{rSubsection}{AI Intern}{Sep. 2024 -- Jun. 2025}{\href{https://www.gofreight.com/}{GoFreight} (The world's largest cloud-based freight forwarding software)}{Taipei, Taiwan}
+%   \item Leveraged MLLM parallelization for logistics OCR/NLP, reducing processing time by \textbf{\textasciitilde67\%} (45s to 15s).
+%   \item Built LLM-based web parsers with up to \textbf{97\%} accuracy.
+% \end{rSubsection}
+
+% \begin{rSubsection}{AI Engineer (Part-Time)}{Jul. 2023 -- Sep. 2024}{\href{https://www.chainsea.com.tw/about/introduction/}{ChainSea Information Group}}{Taipei, Taiwan}
+%   \item Core R\&D on LLM/Whisper projects (transcription, inference acceleration, LoRA tuning).
+%   \item Built RAG pipelines and an LLM Agent for addiction counseling.
+% \end{rSubsection}
+
+% \end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	SELECTED COMPETITIONS & HONORS
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Selected Competitions \& Honors}
+
+\rEntry{\href{https://innoaward.taiwan-healthcare.org/award_detail.php?REFDOCTYPID=0t8y9kqb91f9k1nb\&REFDOCID=0t8yaf5fsgxz21ae}{National Innovation Award}}{2025}{Project: MedPlan [2]. Co-participating with Far Eastern Memorial Hospital.}{Taiwan}
+  % \item First Inventor of patent. MOU signed with clinics/system vendors; deployed in clinical trials at hospital.
+
+\rEntry{2nd Place, \href{https://ht-hackathon.tw/tw/hthackthon2024/article/3824/}{HOTAI MaaS Hackathon}\normalfont{, (2/233 teams; $\sim$0.8\%)}}{2024}{AI Travel Itinerary Health Check. Won \textbf{$\sim$\$7,800 USD} prize.}{Taiwan}
+
+\rEntry{3rd Place, \href{https://linecorp.com/tw/pr/news/2024/1226/}{LINE FRESH Campus Competition}\normalfont{, (3/165 teams; $\sim$1.8\%)}}{2024}{AI dementia care platform. Built health tracking and multilingual chatbot with LLMs.}{Taiwan}
+
+% \rEntry{\href{https://cpe.mcu.edu.tw/}{CPE Collegiate Programming Examination}\normalfont{ --- Professional Level (A), Top 4.6\%}}{2025}{Ranked 113/2481. ICPC-style algorithmic problem solving.}{Taiwan}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	ACADEMIC SERVICE & OTHER
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Academic Service \& Other Activities}
+\setlength{\leftmarginii}{1em}
+\begin{itemize} \itemsep -3pt
+  \item \textbf{Reviewer:} KDD 2026 AI4Sci Track, IEEE TCE Journal, NeurIPS Workshop on GenAI for Health (2025, 2026), NeurIPS 2025 Workshop on Efficient Reasoning, Texas NLP Symposium 2026, WMW 2026.
+  \item \textbf{Talks:} \href{https://tw.pycon.org/2026/zh-hant/conference/young-inspires}{PyCon TW (academic research sharing)}; Google Developer Group at NCCU (Generative AI, Databases).
+  % \item \textbf{Volunteer:} Soobi rural children's programming camp instructor (Meowbit game design).
+  % \item \textbf{Columnist:} \href{https://book.yunzhan365.com/eddpz/nfch/mobile/index.html}{\textit{Customer Insights} magazine} (two columns on generative AI applications).
+  \item \textbf{Open Source:} Core contributor to \href{https://github.com/InverseUI/InverseUI-Recorder}{InverseUI-Recorder}, LLM-based browser automation (300+ GitHub stars).
+  % \item \textbf{Security:} \href{https://zeroday.hitcon.org/user/JustinHsu/vulnerability}{Two ZeroDay vulnerability} disclosures.
+  % \item \textbf{Industry Projects:} \href{https://service.taipower.com.tw:4433/smartrobot/?eservice=TPCWEB}{Taipower smart AI chatbot} (``Dianbao'') training data optimization (during tenure at ChainSea).
+\end{itemize}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+
+% \begin{rSection}{Skills}
+% Python, C/C++, PyTorch, Unsloth, verl, Transformers, Flask, Langfuse, SQL, Linux, GCP, Docker, Git
+% \end{rSection}
+
+\end{document}

@@ -3,122 +3,321 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="manifest.json">
+    <title>Hsin-Ling (Justin) Hsu</title>
     <meta name="description"
-        content="許新翎, focuses on AI technology R&D, software outsourcing, blogging, and personal resume building.">
-    <meta name="author" content="許新翎">
-    <title>許新翎｜AI 技術與軟體開發</title>
+        content="Hsin-Ling (Justin) Hsu (許新翎) is an undergraduate researcher at National Chengchi University working on trustworthy LLMs and VLMs: hallucination, interpretability, and verifiable model repair, with applications in healthcare.">
+    <meta name="author" content="Hsin-Ling (Justin) Hsu">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        // Apply the saved light/dark choice before the page paints (no flash).
+        try {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        } catch (e) { }
+    </script>
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "Person",
-          "name": "許新翎",
-          "description": "AI 技術與軟體開發專家",
+          "name": "Hsin-Ling Hsu",
+          "alternateName": ["Justin Hsu", "許新翎"],
+          "description": "Undergraduate researcher working on trustworthy LLMs and VLMs.",
           "url": "https://justin-code.com",
+          "affiliation": { "@type": "CollegeOrUniversity", "name": "National Chengchi University" },
           "sameAs": [
             "https://scholar.google.com/citations?user=pCXJM5AAAAAJ",
             "https://github.com/JustinHsu1019",
-            "https://www.linkedin.com/in/justinhsu101999/"
+            "https://www.linkedin.com/in/justinhsu101999/",
+            "https://x.com/JustinHsu99"
           ]
         }
     </script>
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <h1 id="site-title">Justin Hsu</h1>
+    <div class="page">
+
+        <!-- ============================== HEADER ============================== -->
+        <header class="profile">
+            <img src="avatar.jpg" alt="Photo of Hsin-Ling (Justin) Hsu" class="avatar">
+            <div class="profile-text">
+                <h1>Hsin-Ling (Justin) Hsu <span class="cjk">許新翎</span></h1>
+                <p class="tagline">Undergraduate Researcher · <a href="https://www.nccu.edu.tw/index.php?Lang=en" target="_blank">National Chengchi University</a>, Taipei</p>
+                <p class="links">
+                    <a href="mailto:justin.hsu.1019@gmail.com">Email</a>
+                    <a href="cv/CV.pdf" target="_blank">CV</a>
+                    <a href="https://scholar.google.com/citations?user=pCXJM5AAAAAJ" target="_blank">Google Scholar</a>
+                    <a href="https://github.com/JustinHsu1019" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/justinhsu101999/" target="_blank">LinkedIn</a>
+                    <a href="https://x.com/JustinHsu99" target="_blank">X</a>
+                </p>
+            </div>
         </header>
-        <nav>
-            <ul>
-                <li><a href="#about-me">About Me</a></li>
-                <li><a href="#expertise" style="display:none;">Research Interests</a></li>
-                <li><a href="#publication" style="display:none;">Publications</a></li>
-                <li><a href="#resume" id="resume-tab">Resume</a></li>
-                <li><a href="#login" id="login-link" style="display:none;">Sign in</a></li>
-            </ul>
+
+        <nav class="toc">
+            <div class="toc-links">
+                <a href="#about">About</a>
+                <a href="#news">News</a>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#experience">Experience</a>
+                <a href="#service">Service &amp; Honors</a>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+                <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
+            </button>
         </nav>
 
         <main>
-            <section id="about-me">
 
-                <div class="phd-banner">
-                    <p>I am currently preparing my application for US CS PhD programs in Fall 2027.</p>
-                </div>
-
-                <h2 class="about-title">
-                    <img src="avatar.jpg" alt="許新翎" class="header-avatar">
-                    <span id="name-toggle" style="cursor: pointer;">Justin</span>
-                    &nbsp;&nbsp;<button id="language-toggle" style="cursor: pointer;">切換繁體中文</button>
-                </h2>
-                <img id="github-trophy" style="display:none;"
-                    src="https://github-profile-trophy.vercel.app/?username=JustinHsu1019&title=-Experience,-Issues,-Reviews"
-                    alt="GitHub Trophies" />
-                <div class="right-aligned-img" style="display:none;">
-                    <img src="https://github-readme-stats.vercel.app/api?username=JustinHsu1019&show_icons=true&theme=default"
-                        alt="GitHub Stats" />
-                    <br />
-                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=JustinHsu1019&hide=html"
-                        alt="Top Languages" />
-                </div>
-                <div id="about-content" class="small-des">
-                    <p>
-                        <strong>Hsin-Ling (Justin) Hsu</strong> (Chinese: 許新翎, born October 19, 2004), is an AI student researcher and R&D engineer with over 2 years of industry and research experience specializing in software engineering and artificial intelligence, particularly in AI for Healthcare and Trustworthy VLMs/LLMs.
-                        He is currently a remote research intern at the
-                        <a href="https://khhuang.me" target="_blank">Texas A&amp;M University's FLAIR Lab</a>
-                        and an AI team research assistant at the
-                        <a href="https://www.femh.org.tw/MainPage_en/index.aspx" target="_blank">Far Eastern Memorial Hospital</a>.
-                        He is pursuing a bachelor's degree in Management Information Systems and Computer Science at
-                        <a href="https://www.nccu.edu.tw/index.php?Lang=en" target="_blank">National Chengchi University</a>.
-                        Previously, he was an AI intern at
-                        <a href="https://www.gofreight.com/" target="_blank">GoFreight</a>
-                        and a part-time AI engineer at the
-                        <a href="https://www.chainsea.com.tw/about/introduction/" target="_blank">ChainSea Information Group</a>.
-                    </p>
-                    <p>Justin has participated in various project developments, including the <a
-                            href="https://service.taipower.com.tw:4433/smartrobot/" target="_blank">Taiwan Power AI
-                            Chatbot Optimization Project</a> (optimizing training data for the chatbot "Dian Bao") and
-                        <a href="https://nccupass.com" target="_blank">NCCUPass APP</a> (led the AI team in product
-                        development, with over 2,000 NCCU students registered and achieved outstanding results in
-                        multiple startup competitions). Additionally, he has published several academic papers as the
-                        first author, including "<strong>(COLM 2026, ~29%)</strong> <a href="https://arxiv.org/pdf/2605.07305" target="_blank">MedAction: Towards Active Multi-turn Clinical Diagnostic LLMs"</a>, "<strong>(ACL 2025 ind., ~25.6%)</strong> <a href="https://aclanthology.org/2025.acl-industry.76/" target="_blank">MedPlan: A
-                            Two-Stage RAG-Based System for Personalized Medical Plan Generation"</a>, <a href="https://arxiv.org/pdf/2503.23013" target="_blank">"DAT: Dynamic Alpha Tuning for
-                            Hybrid Retrieval in Retrieval-Augmented Generation"</a>, and
-<a href="https://research.nii.ac.jp/ntcir/workshop/OnlineProceedings18/pdf/ai_cup/01-AICUP-AICUP-HsuH.pdf" target="_blank">"KAP: MLLM-assisted OCR Text
-                            Enhancement for Hybrid Retrieval in Chinese Non-Narrative Documents"</a>, among several other research works.</p>
-                    <p>
-                        In December 2024, Justin's team won second place nationwide <strong>[2/233 teams; ~0.8%]</strong> in the
-                        <a href="https://tw.news.yahoo.com/2024%E5%92%8C%E6%B3%B0maas%E9%BB%91%E5%AE%A2%E6%9D%BE-%E7%AB%B6%E8%B3%BD%E7%B5%90%E6%9E%9C%E6%8F%AD%E6%9B%89-084102303.html"
-                            target="_blank">
-                            Hotai MaaS Hackathon</a> with a solution integrating social platforms and intelligent travel
-                        health checks.
-                        Later that month, his team secured third place nationwide <strong>[3/165 teams; ~1.8%]</strong> in the
-                        <a href="https://linecorp.com/tw/pr/news/2024/1226/" target="_blank">LINE FRESH Campus
-                            Competition</a>
-                        with an intelligent dementia care platform.
-                    </p>
-                </div>
-
-                <ol class="contact-info">
-                    <li>Email: <a href="mailto:justin.hsu.1019@gmail.com">justin.hsu.1019@gmail.com</a></li>
-                    <li>Google Scholar: <a href="https://scholar.google.com/citations?user=pCXJM5AAAAAJ" target="_blank">Hsin-Ling Hsu</a></li>
-                    <li>GitHub: <a href="https://github.com/JustinHsu1019/" target="_blank">JustinHsu1019</a></li>
-                    <li>LinkedIn: <a href="https://www.linkedin.com/in/justinhsu101999/"
-                            target="_blank">JustinHsu101999</a></li>
-                </ol>
+            <!-- ============================== ABOUT ============================== -->
+            <section id="about">
+                <p>
+                    I am a senior undergraduate at <a href="https://www.nccu.edu.tw/index.php?Lang=en" target="_blank">National Chengchi University (NCCU)</a>,
+                    double majoring in Computer Science and Management Information Systems.
+                    My research focuses on <strong>trustworthy foundation models (LLMs and VLMs)</strong> for high-stakes applications such as
+                    healthcare and autonomous driving, spanning <strong>hallucination</strong>, <strong>interpretability</strong>, and
+                    <strong>verifiable model repair</strong>.
+                </p>
+                <p>
+                    I currently work with <a href="https://khhuang.me" target="_blank">Prof. Kuan-Hao Huang</a> at Texas A&amp;M University
+                    on hallucination in vision-language models, and collaborate with
+                    <a href="https://liyueshen.engin.umich.edu/" target="_blank">Prof. Liyue Shen</a>'s group at the University of Michigan
+                    on active clinical diagnostic agents. I am also a research assistant at
+                    <a href="https://www.femh.org.tw/mainpage_en/Introduction.aspx" target="_blank">Far Eastern Memorial Hospital</a>,
+                    where my system MedPlan (ACL 2025) has been deployed. At NCCU, I work with Prof. Fang Yu on verifiable repair of
+                    language models and with Prof. Shi-Sheng Sun on explainable trajectory prediction.
+                </p>
+                <p class="callout">I am applying to CS PhD programs for Fall 2027.</p>
             </section>
 
-            <section id="expertise">
-                <h2>Research Interests</h2>
-                <ul>
-                    <li>AI for Healthcare</li>
-                    <li>Trustworthy VLMs/LLMs</li>
+            <!-- ============================== NEWS ============================== -->
+            <section id="news">
+                <h2>News</h2>
+                <ul class="news">
+                    <li><span class="date">Oct 2026</span><span>Released <strong>NAME-Bench</strong> (<a href="https://arxiv.org/pdf/2610.23610" target="_blank">paper</a>, <a href="https://github.com/lab-flair/NAME_Bench" target="_blank">data</a>): not every object mention is a hallucination claim. Under review at ARR.</span></li>
+                    <li><span class="date">Oct 2026</span><span>Released <strong>FORGE</strong> (<a href="https://arxiv.org/pdf/2610.05190" target="_blank">paper</a>, <a href="https://github.com/sostrustfix/FORGE" target="_blank">code</a>), verification-gated behavioral repair for LLMs. Under review at ICSE 2027.</span></li>
+                    <li><span class="date">Jul 2026</span><span><strong>MedAction</strong> (<a href="https://openreview.net/forum?id=2ZtsUgwVbx" target="_blank">paper</a>, <a href="https://github.com/JustinHsu1019/MedAction" target="_blank">code/data</a>) accepted to COLM 2026.</span></li>
+                    <li><span class="date">May 2026</span><span>Granted a <a href="https://patents.google.com/patent/TWM682510U/en" target="_blank">Taiwan utility model patent</a> (No. M682510) for the MedPlan system.</span></li>
+                    <li><span class="date">Apr 2026</span><span>Released <strong>WARP</strong> (<a href="https://arxiv.org/pdf/2604.00938" target="_blank">paper</a>, <a href="https://github.com/sostrustfix/WARP" target="_blank">code</a>), provable inner-layer repair of Transformers.</span></li>
+                    <li><span class="date">Feb 2026</span><span>Started collaborating with Prof. Liyue Shen's <a href="https://liyueshen.engin.umich.edu/" target="_blank">BioMed-AI Lab</a> at the University of Michigan.</span></li>
+                    <li><span class="date">Nov 2025</span><span>Joined Prof. Kuan-Hao Huang's <a href="https://khhuang.me" target="_blank">FLAIR Lab</a> at Texas A&amp;M University as a remote research intern.</span></li>
+                    <li><span class="date">Jul 2025</span><span><strong>MedPlan</strong> (<a href="https://aclanthology.org/2025.acl-industry.76.pdf" target="_blank">paper</a>) published at ACL 2025 (Industry Track), Vienna.</span></li>
                 </ul>
             </section>
 
+            <!-- ============================== RESEARCH HIGHLIGHTS ============================== -->
+            <section id="research">
+                <h2>Research Highlights</h2>
+
+                <article class="project">
+                    <h3>Not Every Mention Is a Claim: Rethinking Object Hallucination Detection</h3>
+                    <p class="meta"><a href="https://khhuang.me" target="_blank">Texas A&amp;M FLAIR Lab</a> · Under review at ARR ·
+                        <a href="https://arxiv.org/pdf/2610.23610" target="_blank">[paper]</a>
+                        <a href="https://github.com/lab-flair/NAME_Bench" target="_blank">[data]</a></p>
+                    <p>
+                        Hallucination benchmarks treat every object a caption names as a claim that the object is present.
+                        But in “a bench for people to sit on”, <em>people</em> is mentioned, not asserted.
+                        I built <strong>NAME-Bench</strong>, 25,497 object mentions from five VLMs, labeled as concrete, hallucinated, or
+                        non-assertive (depictive, purpose, negation, hedged). Every detector we tested flags non-assertive mentions as
+                        hallucinations (14–80%), and correcting this is far harder on newer VLMs than on LLaVA-1.5.
+                    </p>
+                </article>
+
+                <article class="project">
+                    <h3>MedAction: Active Multi-turn Clinical Diagnostic LLMs</h3>
+                    <p class="meta"><a href="https://liyueshen.engin.umich.edu/" target="_blank">University of Michigan BioMed-AI Lab</a> · COLM 2026 ·
+                        <a href="https://openreview.net/forum?id=2ZtsUgwVbx" target="_blank">[paper]</a>
+                        <a href="https://github.com/JustinHsu1019/MedAction" target="_blank">[code/data]</a></p>
+                    <p>
+                        Real diagnosis is a sequence of decisions: what to ask, which test to order, and when to stop.
+                        I built a tree-structured distillation pipeline with two knowledge-graph-grounded consistency metrics to create
+                        <strong>MedAction-32K</strong> (32,681 multi-turn diagnostic trajectories from 2,896 PMC cases). Our fine-tuned 8B model
+                        is state of the art among open-source models on MedRBench. I am now extending it with reinforcement learning into an
+                        agent that orders tests, interprets results, and decides when to stop.
+                    </p>
+                </article>
+
+                <article class="project">
+                    <h3>MedPlan: Personalized Medical Plan Generation in Clinical Practice</h3>
+                    <p class="meta"><a href="https://www.femh.org.tw/mainpage_en/Introduction.aspx" target="_blank">Far Eastern Memorial Hospital</a> · ACL 2025 Industry Track ·
+                        <a href="https://aclanthology.org/2025.acl-industry.76.pdf" target="_blank">[paper]</a>
+                        <a href="https://patents.google.com/patent/TWM682510U/en" target="_blank">[patent]</a></p>
+                    <p>
+                        A two-stage retrieval-augmented system that mirrors how clinicians write SOAP notes: it first generates an assessment,
+                        then a patient-specific treatment plan, grounded in the hospital's real-world EHR records. The system is deployed at
+                        the hospital and validated by attending physicians on real patient records (90%+ ICD-10 prediction accuracy), and led
+                        to a Taiwan patent, the <a href="https://innoaward.taiwan-healthcare.org/award_detail.php?REFDOCTYPID=0t8y9kqb91f9k1nb&amp;REFDOCID=0t8yaf5fsgxz21ae" target="_blank">National Innovation Award</a>,
+                        and MOUs with clinics and HIS vendors. We are now integrating it with HL7 FHIR for interoperability with hospital
+                        information systems.
+                    </p>
+                </article>
+
+                <article class="project">
+                    <h3>WARP &amp; FORGE: Verifiable Repair of Language Models</h3>
+                    <p class="meta">NCCU, with Prof. Fang Yu · NSTC Undergraduate Research Grant ·
+                        <a href="https://arxiv.org/pdf/2604.00938" target="_blank">[WARP paper]</a>
+                        <a href="https://github.com/sostrustfix/WARP" target="_blank">[WARP code]</a>
+                        <a href="https://arxiv.org/pdf/2610.05190" target="_blank">[FORGE paper]</a>
+                        <a href="https://github.com/sostrustfix/FORGE" target="_blank">[FORGE code]</a></p>
+                    <p>
+                        Fine-tuning can fix a model's mistakes but offers no guarantee about what else it breaks.
+                        <strong>WARP</strong> repairs inner layers of Transformer models by solving a convex quadratic program, with provable
+                        guarantees on the repaired samples, preservation of correct behavior, and certified robustness.
+                        <strong>FORGE</strong> extends this to generative LLMs, reducing bias and toxicity with minimal perplexity cost, and
+                        stays stable in low-resource settings where fine-tuning fails.
+                    </p>
+                </article>
+            </section>
+
+            <!-- ============================== PUBLICATIONS ============================== -->
+            <section id="publications">
+                <h2>Publications</h2>
+                <p class="note">
+                    <a href="https://scholar.google.com/citations?user=pCXJM5AAAAAJ" target="_blank">Total citations: 82; h-index: 3; i10-index: 2</a> (Oct 2026).
+                    * Equal contribution. † Co-senior author.
+                </p>
+
+                <h3 class="sub">Conference &amp; Journal Papers</h3>
+                <ol class="pubs">
+                    <li>
+                        <span class="title">MedAction: Towards Active Multi-turn Clinical Diagnostic LLMs</span>
+                        <span class="authors"><b>Hsin-Ling Hsu</b>, Zizheng Wang*, Donghua Zhang*, …, Chenwei Wu†, Liyue Shen†</span>
+                        <span class="venue"><em>Third Conference on Language Modeling</em> (<b>COLM</b> 2026), San Francisco, USA, 2026. ~29% acceptance rate.</span>
+                        <a href="https://openreview.net/forum?id=2ZtsUgwVbx" target="_blank">[paper]</a>
+                        <a href="https://github.com/JustinHsu1019/MedAction" target="_blank">[code/data]</a>
+                    </li>
+                    <li>
+                        <span class="title">MedPlan: A Two-Stage RAG-Based System for Personalized Medical Plan Generation</span>
+                        <span class="authors"><b>Hsin-Ling Hsu*</b>, Cong-Tinh Dao*, Luning Wang, Zitao Shuai, …, Fang-Ming Hung, Chenwei Wu</span>
+                        <span class="venue"><em>Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics</em> (<b>ACL</b> 2025): Industry Track, Vienna, Austria, 2025. ~25.6% acceptance rate. 30+ citations.</span>
+                        <a href="https://aclanthology.org/2025.acl-industry.76.pdf" target="_blank">[paper]</a>
+                    </li>
+                    <li>
+                        <span class="title">RGPO: Ranking-Guided Preference Optimization for Reliable Clinical Reasoning</span>
+                        <span class="authors">Chia-Hsuan Hsu*, Jun-En Ding*, <b>Hsin-Ling Hsu</b>, …, Fang-Ming Hung</span>
+                        <span class="venue"><em>IEEE Transactions on Artificial Intelligence</em> (<b>IEEE TAI</b>, Q1 Journal), 2026.</span>
+                        <a href="https://ieeexplore.ieee.org/document/11495200" target="_blank">[paper]</a>
+                    </li>
+                    <li>
+                        <span class="title">KAP: MLLM-assisted OCR Text Enhancement for Hybrid Retrieval in Chinese Non-Narrative Documents</span>
+                        <span class="authors"><b>Hsin-Ling Hsu</b>, Ping-Sheng Lin, Jing-Di Lin, Jengnan Tzeng</span>
+                        <span class="venue"><em>Proceedings of the FinTech in AI CUP Special Session, 18th <b>NTCIR</b> Conference</em>, Tokyo, Japan, 2025.</span>
+                        <a href="https://research.nii.ac.jp/ntcir/workshop/OnlineProceedings18/pdf/ai_cup/01-AICUP-AICUP-HsuH.pdf" target="_blank">[paper]</a>
+                        <a href="https://github.com/JustinHsu1019/KAP" target="_blank">[code]</a>
+                        <span class="pub-note">Oral presentation; travel grant from Taiwan's Ministry of Education ($2,500 USD); National Excellence Prize, AI CUP 2024.</span>
+                    </li>
+                </ol>
+
+                <h3 class="sub">Manuscripts</h3>
+                <ol class="pubs" start="5">
+                    <li>
+                        <span class="title">Not Every Mention Is a Claim: Rethinking Object Hallucination Detection in Vision-Language Models</span>
+                        <span class="authors"><b>Hsin-Ling Hsu*</b>, Neeraja Kirtane*, Kuan-Hao Huang</span>
+                        <span class="venue">Under review at <em>ARR October 2026</em> (targeting NAACL 2027).</span>
+                        <a href="https://arxiv.org/pdf/2610.23610" target="_blank">[paper]</a>
+                        <a href="https://github.com/lab-flair/NAME_Bench" target="_blank">[data]</a>
+                    </li>
+                    <li>
+                        <span class="title">WARP: Guaranteed Inner-Layer Repair of NLP Transformers</span>
+                        <span class="authors"><b>Hsin-Ling Hsu</b>, Min-Yu Chen, Nai-Chia Chen, Yan-Ru Chen, Yi-Ling Chang, Fang Yu</span>
+                        <span class="venue"><em>arXiv preprint</em>, 2026.</span>
+                        <a href="https://arxiv.org/pdf/2604.00938" target="_blank">[paper]</a>
+                        <a href="https://github.com/sostrustfix/WARP" target="_blank">[code]</a>
+                    </li>
+                    <li>
+                        <span class="title">FORGE: Verification-Gated Behavioral Repair for Generative Language Models</span>
+                        <span class="authors"><b>Hsin-Ling Hsu</b>, Min-Yu Chen, Nai-Chia Chen, Yan-Ru Chen, Yi-Ling Chang, Fang Yu</span>
+                        <span class="venue">Under review at <em>ICSE 2027</em>.</span>
+                        <a href="https://arxiv.org/pdf/2610.05190" target="_blank">[paper]</a>
+                        <a href="https://github.com/sostrustfix/FORGE" target="_blank">[code]</a>
+                    </li>
+                    <li>
+                        <span class="title">Reasoning Like an LLM, Running Like an LSTM: Concept Graph Distillation for Explainable Vehicle Trajectory Prediction</span>
+                        <span class="authors"><b>Hsin-Ling Hsu</b>, …, Shi-Sheng Sun</span>
+                        <span class="venue">In preparation.</span>
+                    </li>
+                </ol>
+
+                <h3 class="sub">Patent</h3>
+                <ul class="pubs plain">
+                    <li>
+                        <span class="title">Electronic Device for Generating Personalized Assessment Content and Treatment Plan</span>
+                        <span class="authors"><b>Hsin-Ling Hsu</b>, Jun-En Ding, Fang-Ming Hung</span>
+                        <span class="venue">Taiwan Utility Model Patent No. M682510, granted May 2026. Assignee: Far Eastern Memorial Hospital.</span>
+                        <a href="https://patents.google.com/patent/TWM682510U/en" target="_blank">[patent]</a>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ============================== EXPERIENCE ============================== -->
+            <section id="experience">
+                <h2>Research Experience</h2>
+                <ul class="exp">
+                    <li>
+                        <div class="exp-head"><span><a href="https://liyueshen.engin.umich.edu/" target="_blank"><strong>University of Michigan</strong>, BioMed-AI Lab, ECE/EECS</a></span> <span class="date">Feb 2026 – Present</span></div>
+                        <div class="exp-sub">Research Collaborator · Advisor: Prof. Liyue Shen · Remote</div>
+                    </li>
+                    <li>
+                        <div class="exp-head"><span><a href="https://khhuang.me" target="_blank"><strong>Texas A&amp;M University</strong>, FLAIR Lab, CSE</a></span> <span class="date">Nov 2025 – Present</span></div>
+                        <div class="exp-sub">Research Intern · Advisor: Prof. Kuan-Hao Huang · Remote</div>
+                    </li>
+                    <li>
+                        <div class="exp-head"><span><a href="https://www.femh.org.tw/mainpage_en/Introduction.aspx" target="_blank"><strong>Far Eastern Memorial Hospital</strong></a></span> <span class="date">Dec 2024 – Present</span></div>
+                        <div class="exp-sub">Research Assistant · Advisor: Dr. Fang-Ming Hung · New Taipei, Taiwan</div>
+                    </li>
+                    <li>
+                        <div class="exp-head"><span><a href="https://www.nccu.edu.tw/index.php?Lang=en" target="_blank"><strong>National Chengchi University</strong>, Departments of MIS and Computer Science</a></span> <span class="date">Sep 2025 – Present</span></div>
+                        <div class="exp-sub">Undergraduate Capstone Research · Advisors: Prof. Fang Yu (MIS) and Prof. Shi-Sheng Sun (CS) · Taipei, Taiwan</div>
+                    </li>
+                </ul>
+
+                <h3 class="sub">Earlier Industry Experience</h3>
+                <ul class="exp">
+                    <li>
+                        <div class="exp-head"><span><a href="https://tirongwu-5d.github.io/" target="_blank"><strong>Academia Sinica</strong>, RLG Lab, IIS</a></span> <span class="date">May 2024 – Jul 2026</span></div>
+                        <div class="exp-sub">Engineer (Part-Time) · Advisor: Prof. Ti-Rong Wu · Reinforcement learning infrastructure: game environments and AI solution tree visualization.</div>
+                    </li>
+                    <li>
+                        <div class="exp-head"><span><a href="https://www.gofreight.com/" target="_blank"><strong>GoFreight</strong></a></span> <span class="date">Sep 2024 – Jun 2025</span></div>
+                        <div class="exp-sub">AI Intern · Parallelized MLLM pipelines for logistics OCR/NLP (~67% faster, 45s to 15s); built LLM-based web parsers with up to 97% accuracy.</div>
+                    </li>
+                    <li>
+                        <div class="exp-head"><span><a href="https://www.chainsea.com.tw/about/introduction/" target="_blank"><strong>ChainSea Information Group</strong></a></span> <span class="date">Jul 2023 – Sep 2024</span></div>
+                        <div class="exp-sub">AI Engineer (Part-Time) · LLM/Whisper R&amp;D (transcription, inference acceleration, LoRA tuning); RAG pipelines and an LLM agent for addiction counseling.</div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ============================== SERVICE & HONORS ============================== -->
+            <section id="service">
+                <h2>Service &amp; Honors</h2>
+                <ul class="plain-list">
+                    <li><strong>Reviewer:</strong> KDD 2026 AI4Sci Track, IEEE Transactions on Consumer Electronics, NeurIPS Workshop on GenAI for Health (2025, 2026), NeurIPS 2025 Workshop on Efficient Reasoning, Texas NLP Symposium 2026, WMW 2026.</li>
+                    <li><strong>Talks:</strong> <a href="https://tw.pycon.org/2026/zh-hant/conference/young-inspires" target="_blank">PyCon TW (academic research sharing)</a>; Google Developer Group at NCCU (Generative AI, Databases).</li>
+                    <li><strong>Open Source:</strong> Core contributor to <a href="https://github.com/InverseUI/InverseUI-Recorder" target="_blank">InverseUI-Recorder</a>, LLM-based browser automation (300+ GitHub stars).</li>
+                </ul>
+
+                <h3 class="sub">Selected Competitions &amp; Honors</h3>
+                <ul class="plain-list">
+                    <li><strong><a href="https://innoaward.taiwan-healthcare.org/award_detail.php?REFDOCTYPID=0t8y9kqb91f9k1nb&amp;REFDOCID=0t8yaf5fsgxz21ae" target="_blank">National Innovation Award</a></strong> (2025): Project MedPlan, co-participating with Far Eastern Memorial Hospital.</li>
+                    <li><strong>2nd Place, <a href="https://ht-hackathon.tw/tw/hthackthon2024/article/3824/" target="_blank">HOTAI MaaS Hackathon</a></strong> (2024): 2/233 teams (~0.8%); AI travel itinerary health check; won ~$7,800 USD prize.</li>
+                    <li><strong>3rd Place, <a href="https://linecorp.com/tw/pr/news/2024/1226/" target="_blank">LINE FRESH Campus Competition</a></strong> (2024): 3/165 teams (~1.8%); AI dementia care platform with health tracking and a multilingual LLM chatbot.</li>
+                    <li><strong>Beta Gamma Sigma Honor Society</strong>: top 10% of department.</li>
+                </ul>
+            </section>
+
+            <!--
+            ============================== NOVEL & BLOG (retired) ==============================
             <section id="publication" class="hidden">
                 <h2>Publications</h2>
                 <div class="book-container">
@@ -172,12 +371,6 @@
                             <article id="chapter21" class="hidden">
                                 <h4>OpenAI 新模型: Sora</h4>
                                 <p>Upload Time: 2024/02/16 10:04</p>
-                                <div class="responsive-iframe-container">
-                                    <iframe src="https://www.youtube.com/embed/hyULTbrrpK8?si=zUB_u-W_WMoDHOqJ"
-                                        title="YouTube video player" frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        allowfullscreen></iframe>
-                                </div>
                                 <p id="chapter1_c2"></p>
                             </article>
                             <article id="chapter22" class="hidden">
@@ -194,112 +387,16 @@
                     </div>
                 </div>
             </section>
+            -->
 
-            <section id="resume" class="hidden">
-                <h2>CV Preview</h2>
-                <p>PDF Present: <a href="cv/CV.pdf" target="_blank">Download CV</a></p>
-                <div class="resume-preview">
-                    <iframe src="cv/CV.pdf" width="100%" height="600" frameborder="0">
-                    </iframe>
-                </div>
-            </section>
         </main>
+
+        <footer>
+            <p>© <span id="year">2026</span> Hsin-Ling (Justin) Hsu · Last updated October 2026</p>
+        </footer>
     </div>
+
     <script src="script.js"></script>
-    <script>
-        const nameToggle = document.getElementById("name-toggle");
-        const languageToggle = document.getElementById("language-toggle");
-        const aboutContent = document.getElementById("about-content");
-
-        let isEnglish = true;
-
-        const englishContent = `
-            <p>
-                <strong>Hsin-Ling (Justin) Hsu</strong> (Chinese: 許新翎, born October 19, 2004), is an AI student researcher and R&D engineer with over 2 years of industry and research experience specializing in software engineering and artificial intelligence, particularly in AI for Healthcare and Trustworthy VLMs/LLMs.
-                He is currently a remote research intern at the
-                <a href="https://khhuang.me" target="_blank">Texas A&amp;M University's FLAIR Lab</a>
-                and an AI team research assistant at the
-                <a href="https://www.femh.org.tw/MainPage_en/index.aspx" target="_blank">Far Eastern Memorial Hospital</a>.
-                He is pursuing a bachelor's degree in Management Information Systems and Computer Science at
-                <a href="https://www.nccu.edu.tw/index.php?Lang=en" target="_blank">National Chengchi University</a>.
-                Previously, he was an AI intern at
-                <a href="https://www.gofreight.com/" target="_blank">GoFreight</a>
-                and a part-time AI engineer at the
-                <a href="https://www.chainsea.com.tw/about/introduction/" target="_blank">ChainSea Information Group</a>.
-            </p>
-            <p>Justin has participated in various project developments, including the <a href="https://service.taipower.com.tw:4433/smartrobot/" target="_blank">Taiwan Power AI Chatbot Optimization Project</a> (optimizing training data for the chatbot "Dian Bao") and <a href="https://nccupass.com" target="_blank">NCCUPass APP</a> (led the AI team in product development, with over 2,000 NCCU students registered and achieved outstanding results in multiple startup competitions). Additionally, he has published several academic papers as the first author, including "<strong>(COLM 2026, ~29%)</strong> <a href="https://arxiv.org/pdf/2605.07305" target="_blank">MedAction: Towards Active Multi-turn Clinical Diagnostic LLMs"</a>, "<strong>(ACL 2025 ind., ~25.6%)</strong> <a href="https://aclanthology.org/2025.acl-industry.76/" target="_blank">MedPlan: A Two-Stage RAG-Based System for Personalized Medical Plan Generation"</a>, <a href="https://arxiv.org/pdf/2503.23013" target="_blank">"DAT: Dynamic Alpha Tuning for Hybrid Retrieval in Retrieval-Augmented Generation"</a>, and <a href="https://research.nii.ac.jp/ntcir/workshop/OnlineProceedings18/pdf/ai_cup/01-AICUP-AICUP-HsuH.pdf" target="_blank">"KAP: MLLM-assisted OCR Text Enhancement for Hybrid Retrieval in Chinese Non-Narrative Documents"</a>, among several other research works.</p>
-            <p>
-                In December 2024, Justin's team won second place nationwide <strong>[2/233 teams; ~0.8%]</strong> in the 
-                <a href="https://tw.news.yahoo.com/2024%E5%92%8C%E6%B3%B0maas%E9%BB%91%E5%AE%A2%E6%9D%BE-%E7%AB%B6%E8%B3%BD%E7%B5%90%E6%9E%9C%E6%8F%AD%E6%9B%89-084102303.html" target="_blank">
-                Hotai MaaS Hackathon</a> with a solution integrating social platforms and intelligent travel health checks. 
-                Later that month, his team secured third place nationwide <strong>[3/165 teams; ~1.8%]</strong> in the 
-                <a href="https://linecorp.com/tw/pr/news/2024/1226/" target="_blank">LINE FRESH Campus Competition</a> 
-                with an intelligent dementia care platform.
-            </p>
-        `;
-
-        const chineseContent = `
-            <p>
-                <strong>許新翎</strong>（英語：Justin Hsu，2004年10月19日—），為一位具備超過 2 年軟體產業與人工智慧研究經驗的人工智慧學生研究員與研發工程師。研究專長為 AI for Healthcare and Trustworthy VLMs/LLMs。現任 
-                <a href="https://khhuang.me" target="_blank">美國德州農工大學 FLAIR Lab</a> Remote Research Intern、
-                <a href="https://www.femh.org.tw/MainPage_en/index.aspx" target="_blank">亞東紀念醫院</a>
-                人工智慧團隊研究助理，現於 國立政治大學 雙主修 資訊管理學系(MIS) 與 資訊科學系(CS) 攻讀學士學位中。曾任
-                <a href="https://www.gofreight.com/" target="_blank">GoFreight</a>
-                人工智慧實習研發工程師、
-                <a href="https://www.chainsea.com.tw/about/introduction/" target="_blank">程曦資訊集團</a>
-                兼職 AI 工程師。
-            </p>
-            <p>過去曾參與多項專案研發，包括 <a href="https://service.taipower.com.tw:4433/smartrobot/" target="_blank">台電智能機器人優化案</a>（台電官網智能客服「電寶」訓練資料優化案）、<a href="https://nccupass.com" target="_blank">政大通 APP</a>（領導人工智慧團隊之產品研發，已有逾 2000 位政大學生註冊使用，並在多次新創競賽中榮獲佳績）。同時，作為第一作者發表多篇學術論文，包括<a href="https://arxiv.org/pdf/2605.07305" target="_blank">《MedAction: Towards Active Multi-turn Clinical Diagnostic LLMs》</a><strong>(COLM 2026, ~29%)</strong>、<a href="https://aclanthology.org/2025.acl-industry.76/" target="_blank">《MedPlan: A Two-Stage RAG-Based System for Personalized Medical Plan Generation》</a><strong>(ACL 2025 ind., ~25.6%)</strong>、<a href="https://arxiv.org/pdf/2503.23013" target="_blank">《DAT: Dynamic Alpha Tuning for Hybrid Retrieval in Retrieval-Augmented Generation》</a>以及<a href="https://research.nii.ac.jp/ntcir/workshop/OnlineProceedings18/pdf/ai_cup/01-AICUP-AICUP-HsuH.pdf" target="_blank">《KAP: MLLM-assisted OCR Text Enhancement for Hybrid Retrieval in Chinese Non-Narrative Documents》</a>，並另有多項相關研究成果。</p>
-            <p>
-                2024年12月，以結合社群平台與智能行程健檢的解決方案榮獲和泰與微軟共同舉辦之 
-                <a href="https://tw.news.yahoo.com/2024%E5%92%8C%E6%B3%B0maas%E9%BB%91%E5%AE%A2%E6%9D%BE-%E7%AB%B6%E8%B3%BD%E7%B5%90%E6%9E%9C%E6%8F%AD%E6%9B%89-084102303.html" target="_blank">
-                    和泰 MaaS 黑客松競賽
-                </a>
-                全國亞軍 <strong>[2/233 teams; ~0.8%]</strong>。並在同年12月再度以智能失智症照護平台榮獲 LINE 舉辦之  
-                <a href="https://linecorp.com/tw/pr/news/2024/1226/" target="_blank">LINE FRESH 校園競賽</a>
-                全國季軍 <strong>[3/165 teams; ~1.8%]</strong>。
-            </p>
-        `;
-
-        languageToggle.addEventListener("click", () => {
-            isEnglish = !isEnglish;
-            nameToggle.textContent = isEnglish ? "Justin" : "許新翎";
-            aboutContent.innerHTML = isEnglish ? englishContent : chineseContent;
-            languageToggle.textContent = isEnglish ? "切換繁體中文" : "Switch to English";
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('service-worker.js')
-                    .then((registration) => {
-                        console.log('Service Worker registered with scope:', registration.scope);
-                    }).catch((error) => {
-                        console.log('Service Worker registration failed:', error);
-                    });
-            }
-            document.getElementById('login-link').addEventListener('click', function (e) {
-                e.preventDefault();
-                window.location.href = "https://justin-code.com/login";
-            });
-            document.querySelectorAll('nav ul li a').forEach(tab => {
-                tab.addEventListener('click', function (event) {
-                    event.preventDefault();
-
-                    document.querySelectorAll('main > section').forEach(section => {
-                        section.classList.add('hidden');
-                    });
-
-                    var targetSection = document.querySelector(this.getAttribute('href'));
-                    if (targetSection) {
-                        targetSection.classList.remove('hidden');
-                    }
-                });
-            });
-        });
-    </script>
-    <footer style="text-align: center; padding: 10px 0;">
-        <p>© 2025 許新翎 - JustNi Studio.</p>
-    </footer>
 </body>
 
 </html>

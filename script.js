@@ -1,13 +1,47 @@
-document.getElementById('site-title').addEventListener('click', function () {
-    document.getElementById('resume').classList.add('hidden');
-    document.getElementById('publication').classList.add('hidden');
+// Keep the footer year current.
+document.getElementById('year').textContent = new Date().getFullYear();
 
-    document.querySelectorAll('main > section').forEach(section => {
-        if (section.id !== 'resume' && section.id !== 'publication') {
-            section.classList.remove('hidden');
-        }
+// Light / dark toggle. With no saved choice the page follows the system setting.
+(function () {
+    var root = document.documentElement;
+    var button = document.getElementById('theme-toggle');
+    var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function currentTheme() {
+        var chosen = root.getAttribute('data-theme');
+        if (chosen === 'light' || chosen === 'dark') return chosen;
+        return systemDark.matches ? 'dark' : 'light';
+    }
+
+    function updateLabel() {
+        var label = currentTheme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+        button.setAttribute('aria-label', label);
+        button.setAttribute('title', label);
+    }
+
+    button.addEventListener('click', function () {
+        var next = currentTheme() === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) { }
+        updateLabel();
     });
-});
+
+    if (systemDark.addEventListener) systemDark.addEventListener('change', updateLabel);
+    updateLabel();
+})();
+
+// Remove any service worker left over from the old site so returning
+// visitors always get the latest version of the page.
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function (registrations) {
+        registrations.forEach(function (registration) { registration.unregister(); });
+    }).catch(function () { /* not available (e.g. opened as a local file) */ });
+}
+
+/* ============================================================================
+   Retired: novel & blog reader, push notifications (kept for reference).
+   The matching HTML is commented out in index.html.
+   ============================================================================
 
 function loadChapterContent(chapterId, filePath) {
     fetch(filePath)
@@ -24,15 +58,6 @@ function loadChapterContent(chapterId, filePath) {
 
 loadChapterContent('#chapter1', 'novel.txt');
 loadChapterContent('#chapter2', 'novel.txt');
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
 
 document.querySelector('.book-cover').addEventListener('click', function (event) {
     event.preventDefault();
@@ -179,117 +204,8 @@ loadChapterContent2('#chapter1', 'blog.txt');
 loadChapterContent2('#chapter2', 'blog.txt');
 loadChapterContent2('#chapter3', 'blog.txt');
 
-function requestNotificationPermission() {
-    // alert('1a');
-    if ('Notification' in window) {
-        // alert('2a');
-        Notification.requestPermission().then(permission => {
-            // alert('3a');
-            if (permission === 'granted') {
-                // alert('通知許可已獲得');
-                console.log('通知許可已獲得');
-                subscribeUserToPush();
-                // alert('in 通知許可sec');
-            } else {
-                // alert('通知許可未獲得: ' + permission);
-                console.log('通知許可未獲得: ' + permission);
-            }
-        }).catch(error => {
-            // alert('錯誤發生: ' + error);
-            console.log('錯誤發生: ' + error);
-        });
-    }
-}
+// Push notifications (PythonAnywhere backend) were also removed:
+// requestNotificationPermission, subscribeUserToPush, sendSubscriptionToBackEnd,
+// urlBase64ToUint8Array, sendLeaveNotification. See git history to restore.
 
-function subscribeUserToPush() {
-    // alert('in 通知許可');
-    navigator.serviceWorker.ready.then(function (registration) {
-        // alert('in nav aginaa');
-        const subscribeOptions = {
-            userVisibleOnly: true,
-            applicationServerKey: urlBase64ToUint8Array('BML9uYlsJUmBtRzgEOpXAGb0S6-wCjd67sJ6KoifY_gmeEdnHGGYIwvljaWePooheQsC3BbBi3f4izn9F50byS8')
-        };
-
-        return registration.pushManager.subscribe(subscribeOptions);
-    })
-        .then(function (pushSubscription) {
-            // alert('in TT');
-            console.log('接收到推送訂閱:', JSON.stringify(pushSubscription));
-            // alert('接收到推送訂閱:', JSON.stringify(pushSubscription));
-            sendSubscriptionToBackEnd(pushSubscription);
-            return pushSubscription;
-        });
-}
-
-function sendSubscriptionToBackEnd(subscription) {
-    fetch('https://justincode.pythonanywhere.com/subscribe', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(subscription)
-    })
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error('無法訂閱推送服務，響應狀態: ' + response.status);
-            }
-            return response.json();
-        })
-        .then(function (responseData) {
-            console.log('訂閱成功:', responseData);
-            // alert('訂閱成功:', responseData);
-        })
-        .catch(function (error) {
-            console.error('訂閱推送服務出錯:', error);
-            // alert('訂閱推送服務出錯: ' + error.message);
-        });
-}
-
-function urlBase64ToUint8Array(base64String) {
-    const padding = '='.repeat((4 - base64String.length % 4) % 4);
-    const base64 = (base64String + padding)
-        .replace(/-/g, '+')
-        .replace(/_/g, '/');
-
-    const rawData = window.atob(base64);
-    const outputArray = new Uint8Array(rawData.length);
-
-    for (let i = 0; i < rawData.length; ++i) {
-        outputArray[i] = rawData.charCodeAt(i);
-    }
-    return outputArray;
-}
-
-// window.addEventListener('beforeunload', function (event) {
-//     sendLeaveNotification();
-// });
-
-function sendLeaveNotification() {
-    fetch('https://justincode.pythonanywhere.com/notify-leave', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: 'byebye' })
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('發送離開通知失敗，響應狀態: ' + response.status);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('離開通知發送成功:', data);
-            // alert('離開通知發送成功:', data);
-        })
-        .catch(error => {
-            console.error('發送離開通知出錯:', error);
-            // alert('發送離開通知出錯: ' + error.message);
-        });
-}
-
-// function initApp() {
-//     requestNotificationPermission();
-// }
-
-// initApp();
+============================================================================ */
