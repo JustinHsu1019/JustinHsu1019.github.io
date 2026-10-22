@@ -123,8 +123,8 @@ Taiwan Utility Model Patent No.~M682510, granted May 2026. Assignee: Far Eastern
 \begin{rSection}{Research Experience}
 
 \begin{rSubsection}{Research Collaborator}{Feb. 2026 -- Present}{\href{https://liyueshen.engin.umich.edu/}{BioMed-AI Lab, ECE/EECS, University of Michigan} (Advisor: Prof. Liyue Shen)}{Remote}
-  \item Led \textbf{MedAction} [1] (COLM 2026): built a tree-structured distillation pipeline with two KG-grounded consistency metrics to synthesize \textbf{MedAction-32K} (32,681 multi-turn diagnostic trajectories from 2,896 PMC cases); the fine-tuned 8B model achieves SOTA among open-source models on MedRBench.
-  \item Extending it into \textbf{MedAction-RL}, an SFT + RL recipe for active diagnostic agents that order tests, interpret results, and decide when to stop.
+  \item Led \textbf{MedAction} [1] (COLM 2026): built a tree-structured distillation pipeline with two KG-grounded consistency metrics to synthesize \textbf{MedAction-32K} (32,681 multi-turn diagnostic trajectories from 2,896 PMC cases); the fine-tuned 8B model achieves SOTA among open-source models on MedR-Bench.
+  \item Extended it to RL (\textbf{MedAction-RL}): SFT + GRPO with a KG-gated test reward for active diagnostic agents that order tests, interpret results, and decide when to stop, raising 27B accuracy from 0.46 to 0.77 on MedR-Bench.
 \end{rSubsection}
 
 \begin{rSubsection}{Research Intern}{Nov. 2025 -- Present}{\href{https://khhuang.me}{FLAIR Lab, CSE, Texas A\&M University} (Advisor: Prof. Kuan-Hao Huang)}{Remote}
@@ -138,7 +138,7 @@ Taiwan Utility Model Patent No.~M682510, granted May 2026. Assignee: Far Eastern
 
 \begin{rSubsection}{Undergraduate Capstone Research}{Sep. 2025 -- Present}{Departments of MIS and Computer Science, National Chengchi University}{Taipei, Taiwan}
   \item \textbf{MIS} (Advisor: Prof. Fang Yu): Proposed \textbf{WARP} [6], a provable repair framework for Transformer NLP models beyond the final layer, posed as a convex QP with margin, preservation, and certified-robustness guarantees; extended it to generative LLMs as \textbf{FORGE} [7], which reduces toxicity with minimal perplexity cost and stays stable in low-resource settings where fine-tuning fails. Funded by an \textbf{NSTC Undergraduate Research Grant}.
-  \item \textbf{CS} (Advisor: Prof. Shi-Sheng Sun): Distilling the structure of LLM chain-of-thought into a 69K-parameter concept-graph model for explainable vehicle trajectory prediction [8]; matches the strongest baseline with fewer parameters, runs $\sim$1000$\times$ faster than the LLM, and supports concept-level intervention.
+  \item \textbf{CS} (Advisor: Prof. Shi-Sheng Sun): Distilling the structure of LLM chain-of-thought into a 69K-parameter concept-graph model for explainable vehicle trajectory prediction [8]; matches the strongest baseline at a fraction of its size, runs $\sim$3000$\times$ faster than the LLM, and supports concept-level intervention.
 \end{rSubsection}
 
 \end{rSection}
