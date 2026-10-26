@@ -104,8 +104,8 @@
             <section id="news">
                 <h2>News</h2>
                 <ul class="news">
-                    <li><span class="date">Oct 2026</span><span>Released <strong>NAME-Bench</strong> (<a href="https://arxiv.org/pdf/2610.23610" target="_blank">paper</a>, <a href="https://github.com/lab-flair/NAME_Bench" target="_blank">data</a>): not every object mention is a hallucination claim. Under review at ARR.</span></li>
-                    <li><span class="date">Oct 2026</span><span>Released <strong>FORGE</strong> (<a href="https://arxiv.org/pdf/2610.05190" target="_blank">paper</a>, <a href="https://github.com/sostrustfix/FORGE" target="_blank">code</a>), verification-gated behavioral repair for LLMs. Under review at ICSE 2027.</span></li>
+                    <li><span class="date">Oct 2026</span><span>Released <strong>NAME-Bench</strong> (<a href="https://arxiv.org/pdf/2610.23610" target="_blank">paper</a>, <a href="https://github.com/lab-flair/NAME_Bench" target="_blank">data</a>): not every object mention is a hallucination claim.</span></li>
+                    <li><span class="date">Oct 2026</span><span>Released <strong>FORGE</strong> (<a href="https://arxiv.org/pdf/2610.05190" target="_blank">paper</a>, <a href="https://github.com/sostrustfix/FORGE" target="_blank">code</a>), verification-gated behavioral repair for LLMs.</span></li>
                     <li><span class="date">Jul 2026</span><span><strong>MedAction</strong> (<a href="https://openreview.net/forum?id=2ZtsUgwVbx" target="_blank">paper</a>, <a href="https://github.com/JustinHsu1019/MedAction" target="_blank">code/data</a>) accepted to COLM 2026.</span></li>
                     <li><span class="date">May 2026</span><span>Granted a <a href="https://patents.google.com/patent/TWM682510U/en" target="_blank">Taiwan utility model patent</a> (No. M682510) for the MedPlan system.</span></li>
                     <li><span class="date">Apr 2026</span><span>Released <strong>WARP</strong> (<a href="https://arxiv.org/pdf/2604.00938" target="_blank">paper</a>, <a href="https://github.com/sostrustfix/WARP" target="_blank">code</a>), provable inner-layer repair of Transformers.</span></li>
@@ -142,8 +142,10 @@
                         Real diagnosis is a sequence of decisions: what to ask, which test to order, and when to stop.
                         I built a tree-structured distillation pipeline with two knowledge-graph-grounded consistency metrics to create
                         <strong>MedAction-32K</strong> (32,681 multi-turn diagnostic trajectories from 2,896 PMC cases). Our fine-tuned 8B model
-                        is state of the art among open-source models on MedRBench. I am now extending it with reinforcement learning into an
-                        agent that orders tests, interprets results, and decides when to stop.
+                        is state of the art among open-source models on MedR-Bench. We then extended it with reinforcement learning into
+                        <strong>MedAction-RL</strong>, an agent that orders tests, interprets results, and decides when to stop, raising 27B accuracy
+                        from 0.46 to 0.77 on MedR-Bench.
+                        <a href="https://arxiv.org/abs/2605.07305" target="_blank">[arXiv]</a>
                     </p>
                 </article>
 
